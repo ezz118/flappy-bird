@@ -41,6 +41,7 @@ void move_bird(bird &B){
     return;
 }
 
+
 int startgame(){//will be renamed startgame
     bird B = init();
     print_screen();
