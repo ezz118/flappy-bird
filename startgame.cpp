@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <list>
+#include "interactive.h"
 //include "screen.h"
 //include "bird.h"
 //include "obstacle.h"
@@ -11,13 +12,11 @@ const int sleep_time=50000;
 
 void clear_screen();//to clear screen
 
-int kbhit();//to check if the keyboard is hit
-
 class bird{};//for compilation, will delete this line when bird.h is done
 class obstacle{};//the same
 
 char screen[screen_N][screen_M];
-list<obstacle> O; //to define the a list of obstacle
+list <obstacle> O; //to define the a list of obstacle
 
 bird init(void);//for initializing the game, e.g. new a bird
 void print_screen(void);//to print the screen
@@ -46,7 +45,7 @@ int startgame(){//will be renamed startgame
     bird B = init();
     print_screen();
     while (1){
-        if (kbhit()){
+        if (keyboard_hit()){
             break;
         }
         usleep(sleep_time);
@@ -70,7 +69,7 @@ int startgame(){//will be renamed startgame
         add_ob_to_screen();
         print_screen();
 
-        if (kbhit()){
+        if (keyboard_hit()){
             //B.jump();
         }
         
