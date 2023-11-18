@@ -10,7 +10,7 @@ int main(){
         cin>>option;
         switch (option){
                 case 1:
-                        int score; cin>>score;
+                        int score; cin>>score; //现在没有score，所以测试时要手动输入score
                         upd_ranking(score);
                         cout<<"The latest score has been recorded!"<<endl;
                         break;
