@@ -1,0 +1,33 @@
+#ifndef BIRD_H
+#define BIRD_H
+
+// a class for the parameters of a bird
+
+const double x_position = 1;
+const double acceleration = 9.8;
+const double jump_velocity = 1;
+
+class Bird {
+public:
+    // get the position of the bird in the y direction
+    double gety() { return y; }
+    // update the velocity of the bird after every jump
+    void jump() { v = init_v; }
+    // update the position and the velocity of the bird after every time step
+    void next() { y += v; v += a; }
+    
+private:
+    // position of the bird in the x direction
+    const double x = x_position;
+    // position of the bird in the y direction
+    double y;
+    // velocity of the bird in the y direction
+    double v;
+    // acceleration of the bird in the y direction
+    const double a = acceleration;
+    // velocity of the bird's jump
+    const double init_v = jump_velocity;
+
+};
+
+#endif
