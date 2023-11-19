@@ -10,18 +10,18 @@ const double jump_velocity = 1;
 class Bird {
 public:
     // get the position of the bird in the y direction
-    double gety() { return y; }
+    double gety();
     // update the velocity of the bird after every jump
-    void jump() { v = init_v; }
+    void jump();
     // update the position and the velocity of the bird after every time step
-    void next() { y += v; v += a; }
+    void next();
     
 private:
     // position of the bird in the x direction
     const double x = x_position;
     // position of the bird in the y direction
     double y;
-    // velocity of the bird in the y direction
+    // velocity of the bird in the y direction, we set positive direction to be upward
     double v;
     // acceleration of the bird in the y direction
     const double a = acceleration;

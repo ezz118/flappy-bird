@@ -5,24 +5,23 @@
 
 //fix the velocity of the obstacle
 const double o_velocity = 1;
-
 class obstacle {
 public:
     // get the position of the obstacle in the x direction
-    double getx() { return x; }
-    // get the position of the hole in the y direction
-    double gethole() { return hole; }
+    double getx();
     // get the discriminant of whether the bird touches the obstacle
-    bool touch() { return touch; }
+    bool istouch(Bird bird);
+    // set the parameters for the obstacle
+    void set_position(double x, double hole, double hole_height);
     // update the position of the obstacle in the x direction
-    double next() {x -= o_velocity; return x; }
+    void next();
 
 private:
     // position of the obstacle in the x direction
     double x;
     // position of the hole in the y direction
     double hole;
-    // discriminant of whether the bird touches the obstacle
-    bool touch;
+    // the height of the hole
+    double hole_height;
 };
 #endif
