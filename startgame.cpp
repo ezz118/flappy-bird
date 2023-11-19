@@ -3,8 +3,8 @@
 #include <list>
 #include "interactive.h"
 //include "screen.h"
-//include "bird.h"
-//include "obstacle.h"
+#include "bird.h"
+#include "obstacle.h"
 
 const int screen_N=40;//size of the screen
 const int screen_M=80;
@@ -16,7 +16,7 @@ class bird{};//for compilation, will delete this line when bird.h is done
 class obstacle{};//the same
 
 char screen[screen_N][screen_M];
-list <obstacle> O; //to define the a list of obstacle
+list<obstacle> O; //to define the a list of obstacle
 
 bird init(void);//for initializing the game, e.g. new a bird
 void print_screen(void);//to print the screen
@@ -77,4 +77,25 @@ int startgame(){//will be renamed startgame
         t+=1;
     }
     return score;
+}
+
+void move_bird(bird &B){
+    B.next();
+}
+
+void move_obstacles(){
+    for (int i=0; i < O.size(); i++){
+        O.front().next();
+        O.push_back(O.front());
+        O.pop_front();
+    }
+}
+
+void print_screen(void){
+    for (int i=0; i < screen_N; i++){
+        for (int j=0; j < screen_M; j++){
+            putchar(screen[i][j]);
+        }
+        putchar('\n');
+    }
 }
