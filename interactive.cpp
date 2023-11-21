@@ -3,6 +3,10 @@
 
 #ifdef __linux__ 
 
+#include <unistd.h>
+#include <termios.h>
+#include <fcntl.h>
+
 bool keyboard_hit(){
     struct termios oldt, newt;
     int ch;
