@@ -13,31 +13,9 @@ const int screen_M=80;
 const int sleep_time=50000;
 bool flapped=true;
 
-void clear_screen();//to clear screen
-
-class bird{};//for compilation, will delete this line when bird.h is done
-class obstacle{};//the same
 
 char screen[screen_N][screen_M];
 list<obstacle> O; //to define the a list of obstacle
-
-bird init(void);//for initializing the game, e.g. new a bird
-void print_screen(void);//to print the screen
-
-void move_bird(bird &B);//to move a bird
-
-void move_obstacles(void);//to move all the obstacles, which are store in STL_list, also delete the obstacles that are out
-
-bool check_fail(bird B, int &score);//to check if the bird hit an obstacle; and check if the bird pass an obstacle
-
-bool check_new_ob(int t);//check if an obstacle will be added now
-
-void add_ob(void);//make an ob and push_back into the list
-
-void add_bird_to_screen(bird B);//add the bird to screen
-
-void add_ob_to_screen(void);//add the obstacles to screen
-
 
 
 int startgame(){//will be renamed startgame
@@ -114,11 +92,11 @@ void add_bird_to_screen(bird B){
     int x=ceil(B.x);
     int y=ceil(B.y);
     if ((y-1)>=0 and (y-1)<screen_N){
-        if ((x-1)>=0 and (x-1)<screen_M){
-            screen[y-1][x-1]=up_wing;
+        if ((x+1)>=0 and (x+1)<screen_M){
+            screen[y+1][x+1]=up_wing;
         }
         if (x>=0 and x<screen_M){
-            screen[y-1][x-1]=up_wing;
+            screen[y-1][x]=up_wing;
         }
     }
     if (y>=0 and y<screen_N){
@@ -137,11 +115,11 @@ void add_bird_to_screen(bird B){
         }
     }
     if ((y+1)>=0 and (y+1)<screen_N){
-        if ((x-1)>=0 and (x-1)<screen_M){
-            screen[y+1][x-1]=down_wing;
+        if ((x+1)>=0 and (x+1)<screen_M){
+            screen[y+1][x+1]=down_wing;
         }
         if (x>=0 and x<screen_M){
-            screen[y+1][x-1]=down_wing;
+            screen[y+1][x]=down_wing;
         }
     }
 
@@ -182,4 +160,21 @@ void add_ob(void){
     new_o.x=ran_x;
     new_o.hole=ran_hole;
     O.push_back(new_o);
+}
+
+bool check_fail(bird B, int &score){
+    for (int i=0; i<O.size(); ++i){
+        if (O.front().istouch()){
+            return true;
+        }
+        if (O.front().pass == false and O.ispassed()){
+            O.front().pass = true;
+            score+=1;
+        }
+        O.push_back(O.front());
+        O.pop_front();
+    }
+    if (B.y >= screen_N){
+        return true;
+    }
 }
