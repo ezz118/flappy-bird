@@ -12,7 +12,9 @@ const int screen_N=40;//size of the screen
 const int screen_M=80;
 const int sleep_time=50000;
 bool flapped=true;
-
+int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
+int left=screen_M*4/10; //set the left boundary of the obstacle
+int right=screen_M*7/10; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
 list<obstacle> O; //to define the a list of obstacle
@@ -160,6 +162,40 @@ void add_ob(void){
     new_o.x=ran_x;
     new_o.hole=ran_hole;
     O.push_back(new_o);
+}
+
+double normal_distribution(int a, int b, double mean, double std){
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::normal_distribution<double> dist(mean, std);
+    double rand_value;
+    while (1){
+        rand_value=dist(gen);
+        if (rand_value>=double(a) && rand_value<=double(b)){
+            return rand_value;
+        }
+    }
+
+}
+
+bool check_new_ob(int t){
+    int m = (left+right)/2;
+    double mean = double(m);
+    double std = 5.0;
+    if (t==0) {
+        add_ob_time = normal_distribution(left, right, mean, std);
+        return false;
+    }
+
+    else {
+        if (t == add_ob_time){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
 
 bool check_fail(bird B, int &score){
