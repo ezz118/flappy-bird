@@ -11,6 +11,8 @@ void move_obstacles(void);//to move all the obstacles, which are store in STL_li
 
 bool check_fail(Bird B, int &score);//to check if the bird hit an obstacle; and check if the bird pass an obstacle
 
+double normal_distribution(int a, int b, double mean, double std);//to generate a random number from normal distribution
+
 bool check_new_ob(int t);//check if an obstacle will be added now
 
 void add_ob(void);//make an ob and push_back into the list
