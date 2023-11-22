@@ -7,6 +7,7 @@
 //include "screen.h"
 #include "bird.h"
 #include "obstacle.h"
+#include "startgame.h"
 
 const int screen_N=40;//size of the screen
 const int screen_M=80;
@@ -21,7 +22,7 @@ list<obstacle> O; //to define the a list of obstacle
 
 
 int startgame(){//will be renamed startgame
-    bird B = init();
+    Bird B = init();
     print_screen();
     while (1){
         if (keyboard_hit()){
@@ -47,18 +48,20 @@ int startgame(){//will be renamed startgame
         add_bird_to_screen(B);
         add_ob_to_screen();
         print_screen();
+        init_screen();
 
         if (keyboard_hit()){
-            //B.jump();
+            B.jump();
         }
         
         usleep(sleep_time);
         t+=1;
     }
+    bird_fall(B);
     return score;
 }
 
-void move_bird(bird &B){
+void move_bird(Bird &B){
     B.next();
 }
 
@@ -79,7 +82,7 @@ void print_screen(void){
     }
 }
 
-void add_bird_to_screen(bird B){
+void add_bird_to_screen(Bird B){
     char up_wing, down_wing;
     if (flapped == true){
         up_wing = '\\';
@@ -212,5 +215,30 @@ bool check_fail(bird B, int &score){
     }
     if (B.y >= screen_N){
         return true;
+    }
+}
+
+void bird_fall(Bird B){
+    while ((ceil(B.y) + 1) <  screen_N){
+        if (ceil(B.y - B.v)+1 <= screen_N){
+            B.next();
+        }
+        else{
+            B.sety(double(screen_N));
+        }
+        add_bird_to_screen(B);
+        add_ob_to_screen();
+        print_screen();
+        init_screen();
+        usleep(sleep_time);
+
+    }
+}
+
+void init_screen(){
+    for (int i=0; i<screen_M; ++i){
+        for (int j=0; j<screen_N; ++j){
+            screen[j][i] = ' ';
+        }
     }
 }

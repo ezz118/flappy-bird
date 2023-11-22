@@ -21,4 +21,10 @@ void add_bird_to_screen(Bird B);//add the bird to screen
 
 void add_ob_to_screen(void);//add the obstacles to screen
 
+int startgame();//to start the game
+
+void bird_fall(Bird B);//to show the bird falling when it hits the obstacle
+
+void init_screen(void);//to initialize all the entries in screen to be ' '
+
 #endif

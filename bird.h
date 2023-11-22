@@ -15,6 +15,8 @@ public:
     void jump();
     // update the position and the velocity of the bird after every time step
     void next();
+    // set the value of y
+    void sety(double );
     
 private:
     // position of the bird in the x direction

@@ -18,3 +18,8 @@ void Bird::next() {
     y = y - v;
 }
 
+// set the y coordinate of the bird
+void sety(double h){
+    y = h;
+}
+

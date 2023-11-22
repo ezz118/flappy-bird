@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <fstream>
 #include "menu.h"
+#include "startgame.h"
 using namespace std;
 int main(){
         print_caidan();
@@ -10,7 +11,8 @@ int main(){
         cin>>option;
         switch (option){
                 case 1:
-                        int score; cin>>score; //现在没有score，所以测试时要手动输入score
+                        int score;
+                        score = startgame();
                         upd_ranking(score);
                         cout<<"The latest score has been recorded!"<<endl;
                         break;
