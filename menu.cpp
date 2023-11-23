@@ -1,15 +1,18 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "menu.h"
+
 using namespace std;
-void upd_ranking( int score){
+
+void upd_ranking( int score, string name){
         ofstream fout;
         fout.open("ranking.txt", ios::app);
         if (fout.fail()){
                 cout<<"Error in file opening!!"<<endl;
                 exit(1);
                 }
-        fout<<score<<endl;
+        fout<<name<<"&"<<score<<endl;
         fout.close();
         }
 
@@ -17,31 +20,47 @@ void showranking(){
         ifstream fin;
         fin.open("ranking.txt");
         if (fin.fail()){
-                cout<<"Error in file opening or ranking.txt does not exist!"<<endl;
+                cout<<"Error in file opening or there is no ranking!"<<endl;
                 exit(1);
                 }
-        int score, count=0;
+        int count=0;
+        string score;
         while (fin >> score){
                 count++;
                 }
         fin.close();
-        int * scorelist = new int[count];
+        //make a struct
+        struct rank{
+                string name;
+                int scorenum;
+        };
+        rank * scorelist = new rank[count];
         count=0;
         fin.open("ranking.txt");
+        //below has bug
         while (fin >> score){
-                scorelist[count]=score;
+                int pos=0;
+                pos = score.find("&");
+                string scorenum;
+                scorenum = score.substr(pos+1);
+                int scoreNum = stoi(scorenum);
+                scorelist[count].scorenum= scoreNum;
+                string name;
+                name = score.substr(0,pos);
+                scorelist[count].name=name;
                 count++;
                 }
+                //bug check
         fin.close();
-        //reraning the list
+        //rearranging the list
         int i, j, idx;
         int max;
         for ( i=0; i<count; i++){
-                max=scorelist[i];
+                max=scorelist[i].scorenum;
                 idx=i;
                 for (j=i+1;j<count; j++){
-                        if (scorelist[j] >max){
-                                max= scorelist[j];
+                        if (scorelist[j].scorenum >max){
+                                max= scorelist[j].scorenum;
                                 idx = j;
                                 }
                 }
@@ -50,11 +69,11 @@ void showranking(){
         }
         cout<<"Leaderboard:"<<endl;
         for (int index=0; index<count && index<10; index++){
-                cout<<index+1<<": "<<scorelist[index]<<endl;
+                cout<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
                 }
         delete [] scorelist;
         }
-void print_caidan(){
+void print_menu(){
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
         cout<<"Enter 1 to record your latest score!"<<endl;
         cout<<"Enter 2 to show the leaderborad!"<<endl;
