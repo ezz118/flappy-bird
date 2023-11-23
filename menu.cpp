@@ -69,7 +69,7 @@ void showranking(){
         }
         cout<<"Leaderboard:"<<endl;
         for (int index=0; index<count && index<10; index++){
-                cout<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
+                cout<<index+1<<"、"<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
                 }
         delete [] scorelist;
         }
