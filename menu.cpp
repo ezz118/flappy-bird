@@ -37,7 +37,6 @@ void showranking(){
         rank * scorelist = new rank[count];
         count=0;
         fin.open("ranking.txt");
-        //below has bug
         while (fin >> score){
                 int pos=0;
                 pos = score.find("&");
@@ -50,7 +49,6 @@ void showranking(){
                 scorelist[count].name=name;
                 count++;
                 }
-                //bug check
         fin.close();
         //rearranging the list
         int i, j, idx;
