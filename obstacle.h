@@ -9,10 +9,20 @@ class obstacle {
 public:
     // get the position of the obstacle in the x direction
     double getx();
+    //get the position of the hole
+    double gethole();
+    //to know whether the obstacle has been passed
+    bool getpass();
     // get the discriminant of whether the bird touches the obstacle
     bool istouch(Bird B);
     // set the parameters for the obstacle
     void set_position(double x, double hole, double hole_height);
+    //set the x coordinate of the obstacle
+    void setx(double x);
+    //set the hole position
+    void sethole(double y);
+    //set the pass value 
+    void setpass(bool p);
     // update the position of the obstacle in the x direction
     void next();
     // get the discriminant of whether the bird passed the obstacle
