@@ -14,7 +14,7 @@ public:
     //to know whether the obstacle has been passed
     bool getpass();
     // get the discriminant of whether the bird touches the obstacle
-    bool istouch(Bird B);
+    bool istouch(Bird B, int screen_N);
     // set the parameters for the obstacle
     void set_position(double x, double hole, double hole_height);
     //set the x coordinate of the obstacle

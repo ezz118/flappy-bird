@@ -18,7 +18,7 @@ int left=screen_M*4/10; //set the left boundary of the obstacle
 int right=screen_M*7/10; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
-list<obstacle> O; //to define the a list of obstacle
+std::list<obstacle> O; //to define the a list of obstacle
 
 
 int startgame(){//will be renamed startgame
