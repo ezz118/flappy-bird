@@ -6,6 +6,10 @@ double Bird::gety() {
     return y;
 }
 
+double Bird::getx() {
+    return x;
+}
+
 // update the velocity of the bird after every jump
 void Bird::jump() {
     v = init_v;
@@ -19,7 +23,7 @@ void Bird::next() {
 }
 
 // set the y coordinate of the bird
-void sety(double h){
+void Bird::sety(double h) {
     y = h;
 }
 
