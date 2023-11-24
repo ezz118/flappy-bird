@@ -39,7 +39,7 @@ void clear_screen(){
 
 #elif _WIN32
 
-const int sleep_time=80;
+const int sleep_time=40;
 
 #include<conio.h> 
 #include<cstring>

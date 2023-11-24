@@ -10,16 +10,16 @@
 
 using namespace std;
 
-const int screen_N=30;//size of the screen
-const int screen_M=90;
+const int screen_N=35;//size of the screen
+const int screen_M=100;
 //const char obstacle_char=char(219);
 const char obstacle_char='#';
 
 int flap=0;//to record how long the bird has kept one gesture
-int flaptime=100;//the time that the bird keep one gesture
+int flaptime=3;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
-int Left=screen_M*3/10; //set the left boundary of the obstacle
-int Right=screen_M*6/10; //set the right boundary of the obstacle
+double Left=(double)screen_M*3.0/10.0; //set the left boundary of the obstacle
+double Right=(double)screen_M*6.0/10.0; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
 list <obstacle> O; //to define the a list of obstacle
@@ -27,15 +27,18 @@ list <obstacle> O; //to define the a list of obstacle
 
 int startgame(){//will be renamed startgame
     Bird* B = init_game();
+    int score=0;
     print_screen();
+    printf("\n Your score: %d\n", score);
+    
     while (1){
         if (keyboard_hit()){
             break;
         }
         wait_to_next();
     }
+    
     int t=0;
-    int score=0;
     while (1){
         move_bird(*B);
         move_obstacles();
@@ -46,8 +49,8 @@ int startgame(){//will be renamed startgame
         }
         
         init_screen();
-        add_bird_to_screen(*B);
         add_ob_to_screen();
+        add_bird_to_screen(*B);
         print_screen();
         printf("\n Your score: %d\n", score);
 
@@ -62,8 +65,8 @@ int startgame(){//will be renamed startgame
         wait_to_next();
         t+=1;
     }
-    system("pause");//for debuging
     bird_fall(*B);
+    system("pause");//for debuging
     delete B;
     return score;
 }
@@ -101,7 +104,7 @@ void add_bird_to_screen(Bird B){
         up_wing = '/';
         down_wing = '\\';
         flap+=1;
-        if (flap = 2*flaptime - 1){
+        if (flap == 2*flaptime - 1){
             flap = 0;
         }
     }
@@ -185,8 +188,7 @@ double Normal_Distribution(int a, int b, double mean, double std){
 }
 
 bool check_new_ob(int t){
-    int m = (Left+Right)/2;
-    double mean = double(m);
+    double mean = (Left+Right)/2;
     double std = 5.0;
     if (t==0) {
         add_ob_time = Normal_Distribution(Left, Right, mean, std);
@@ -223,20 +225,20 @@ bool check_fail(Bird B, int &score){
 }
 
 void bird_fall(Bird B){
-    while ((ceil(B.gety()) + 1) <  screen_N){
-        if (ceil(B.gety() - B.getv())+1 <= screen_N){
-            B.next();
-        }
-        else{
-            B.sety(double(screen_N));
-        }
+    B.setv(-jump_velocity);
+    while ((ceil(B.gety()) + 2) <  screen_N){
+        B.sety(B.gety() - B.getv());
+        init_screen();
         add_ob_to_screen();
         add_bird_to_screen(B);
         print_screen();
-        init_screen();
         wait_to_next();
-
     }
+    B.sety(double(screen_N-2));
+    init_screen();
+    add_ob_to_screen();
+    add_bird_to_screen(B);
+    print_screen();
 }
 
 void init_screen(){

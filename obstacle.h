@@ -4,7 +4,7 @@
 // a class for the parameters of an obstacle
 
 //fix the velocity of the obstacle
-const double o_velocity = 2;
+const double o_velocity = 1;
 class obstacle {
 public:
     // get the position of the obstacle in the x direction
