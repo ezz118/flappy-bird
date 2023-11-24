@@ -6,10 +6,15 @@ double Bird::gety() {
     return y;
 }
 
+// get the position of the bird in the x direction
 double Bird::getx() {
     return x;
 }
 
+// get the velocity of the bird
+double Bird::getv() {
+    return v;
+}
 // update the velocity of the bird after every jump
 void Bird::jump() {
     v = init_v;
