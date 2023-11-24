@@ -151,23 +151,14 @@ void add_ob_to_screen(void){
 }
 
 void add_ob(void){
-    double max=O.front().getx();
-    for (int i=0; i<O.size(); i++){
-        if (O.front().getx() > max){
-            max=O.front().getx();
-        }
-        O.push_back(O.front());
-        O.pop_front();
-    }
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> dis1(max+26.0, double(screen_M+4));
-    double ran_x=dis1(gen);
     std::uniform_real_distribution<double> dis2(4.0, double(screen_N-15));
     double ran_hole=dis2(gen);
     obstacle new_o;
-    new_o.setx(ran_x);
+    new_o.setx(screen_M);
     new_o.sethole(ran_hole);
+    new_o.setpass(false);
     O.push_back(new_o);
 }
 
@@ -220,6 +211,7 @@ bool check_fail(Bird B, int &score){
     if (B.gety() >= screen_N){
         return true;
     }
+    return false;
 }
 
 void bird_fall(Bird B){

@@ -75,11 +75,14 @@ bool obstacle::istouch(Bird B, int screen_N) {
             }
         }
     }
+    return false;
 
 }
 
 // get the discriminant of whether the bird passed the obstacle
 bool obstacle::ispassed(Bird B){
-    if (ceil(B.getx()) >= ceil(x)-5)
-       return true;
+    if (ceil(B.getx()) >= ceil(x)-5){
+        return true;
+    }
+    return false;
 }
