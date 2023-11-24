@@ -96,8 +96,8 @@ void add_bird_to_screen(Bird B){
             flap = 0;
         }
     }
-    int x=ceil(B.x);
-    int y=ceil(B.y);
+    int x=ceil(B.getx());
+    int y=ceil(B.gety());
     if ((y-1)>=0 and (y-1)<screen_N){
         if ((x+1)>=0 and (x+1)<screen_M){
             screen[y+1][x+1]=up_wing;
@@ -134,8 +134,8 @@ void add_bird_to_screen(Bird B){
 
 void add_ob_to_screen(void){
     for (int i=0; i<O.size(); i++){
-        int x=ceil(O.front().x);
-        int y=ceil(O.front().hole);
+        int x=ceil(O.front().getx());
+        int y=ceil(O.front().gethole());
         for (int i=x-5; i<=x+6; i++){
             for (int j=0; j<screen_N; j++){
                 if ((i>=0 and i<screen_M) and (j<y or j>=y+9)){
@@ -149,10 +149,10 @@ void add_ob_to_screen(void){
 }
 
 void add_ob(void){
-    double max=O.front().x;
+    double max=O.front().getx();
     for (int i=0; i<O.size(); i++){
-        if (O.front().x > max){
-            max=O.front().x;
+        if (O.front().getx() > max){
+            max=O.front().getx();
         }
         O.push_back(O.front());
         O.pop_front();
@@ -164,8 +164,8 @@ void add_ob(void){
     std::uniform_real_distribution<double> dis2(4.0, double(screen_N-15));
     double ran_hole=dis2(gen);
     obstacle new_o;
-    new_o.x=ran_x;
-    new_o.hole=ran_hole;
+    new_o.setx(ran_x);
+    new_o.sethole(ran_hole);
     O.push_back(new_o);
 }
 
@@ -215,14 +215,14 @@ bool check_fail(Bird B, int &score){
         O.push_back(O.front());
         O.pop_front();
     }
-    if (B.y >= screen_N){
+    if (B.gety() >= screen_N){
         return true;
     }
 }
 
 void bird_fall(Bird B){
-    while ((ceil(B.y) + 1) <  screen_N){
-        if (ceil(B.y - B.v)+1 <= screen_N){
+    while ((ceil(B.gety()) + 1) <  screen_N){
+        if (ceil(B.gety() - B.getv())+1 <= screen_N){
             B.next();
         }
         else{
