@@ -13,11 +13,11 @@ obstacle.o : obstacle.cpp obstacle.h bird.h
 
 startgame.o: startgame.cpp startgame.h obstacle.h bird.h interactive.h
 	$(CC) $(FLAGS) -c startgame.cpp
-//position of startgame.h in other files needs to be determined
+
 menu.o: menu.cpp menu.h
 	$(CC) $(FLAGS) -c menu.cpp
 
-main.o: main.cpp menu.h
+main.o: main.cpp menu.h startgame.h
 	$(CC) $(FLAGS) -c main.cpp
 
 main: $(objects)

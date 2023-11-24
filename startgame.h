@@ -27,4 +27,8 @@ void bird_fall(Bird B);//to show the bird falling when it hits the obstacle
 
 void init_screen(void);//to initialize all the entries in screen to be ' '
 
+double normal_distribution(int a, int b, double mean, double std);//give the probability that an obstacle should be added
+
+bool check_new_ob(int t);//judge whether to add a new obstacle
+
 #endif

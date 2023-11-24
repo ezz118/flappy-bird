@@ -4,7 +4,6 @@
 #include <cmath>
 #include <random>
 #include "interactive.h"
-//include "screen.h"
 #include "bird.h"
 #include "obstacle.h"
 #include "startgame.h"
@@ -12,7 +11,8 @@
 const int screen_N=40;//size of the screen
 const int screen_M=80;
 const int sleep_time=50000;
-bool flapped=true;
+int flap=0;//to record how long the bird has kept one gesture
+int flaptime=100;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
 int left=screen_M*4/10; //set the left boundary of the obstacle
 int right=screen_M*7/10; //set the right boundary of the obstacle
@@ -84,15 +84,17 @@ void print_screen(void){
 
 void add_bird_to_screen(Bird B){
     char up_wing, down_wing;
-    if (flapped == true){
+    if (flap < flaptime){
         up_wing = '\\';
         down_wing = '/';
-        flapped = false;
+        flap+=1;
     }
     else{
         up_wing = '/';
         down_wing = '\\';
-        flapped = true;
+        if (flap = 2*flaptime - 1){
+            flap = 0;
+        }
     }
     int x=ceil(B.x);
     int y=ceil(B.y);
@@ -201,7 +203,7 @@ bool check_new_ob(int t){
 
 }
 
-bool check_fail(bird B, int &score){
+bool check_fail(Bird B, int &score){
     for (int i=0; i<O.size(); ++i){
         if (O.front().istouch()){
             return true;

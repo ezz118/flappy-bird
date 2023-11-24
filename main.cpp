@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include "menu.h"
+#include "startgame.h"
 using namespace std;
 int main(){
         print_menu();
@@ -13,7 +14,7 @@ int main(){
                 switch (option){
                         case 1:
                                 int score;
-                                score=new_game();//new_game has not been declared!!
+                                score=startgame();
                                 cout<<"Enter your username:"<<endl;
                                 cin>>name;
                                 upd_ranking(score, name);
