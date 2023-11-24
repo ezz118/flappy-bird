@@ -100,6 +100,7 @@ void add_bird_to_screen(Bird B){
     else{
         up_wing = '/';
         down_wing = '\\';
+        flap+=1;
         if (flap = 2*flaptime - 1){
             flap = 0;
         }
