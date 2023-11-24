@@ -8,17 +8,19 @@
 #include "obstacle.h"
 #include "startgame.h"
 
+using namespace std;
+
 const int screen_N=40;//size of the screen
 const int screen_M=80;
 const int sleep_time=50000;
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=100;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
-int left=screen_M*4/10; //set the left boundary of the obstacle
-int right=screen_M*7/10; //set the right boundary of the obstacle
+int Left=screen_M*4/10; //set the left boundary of the obstacle
+int Right=screen_M*7/10; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
-std::list<obstacle> O; //to define the a list of obstacle
+list <obstacle> O; //to define the a list of obstacle
 
 
 int startgame(){//will be renamed startgame
@@ -169,7 +171,7 @@ void add_ob(void){
     O.push_back(new_o);
 }
 
-double normal_distribution(int a, int b, double mean, double std){
+double Normal_Distribution(int a, int b, double mean, double std){
     std::random_device rd;
     std::mt19937 gen(rd());
     std::normal_distribution<double> dist(mean, std);
@@ -184,11 +186,11 @@ double normal_distribution(int a, int b, double mean, double std){
 }
 
 bool check_new_ob(int t){
-    int m = (left+right)/2;
+    int m = (Left+Right)/2;
     double mean = double(m);
     double std = 5.0;
     if (t==0) {
-        add_ob_time = normal_distribution(left, right, mean, std);
+        add_ob_time = Normal_Distribution(Left, Right, mean, std);
         return false;
     }
 
@@ -205,11 +207,11 @@ bool check_new_ob(int t){
 
 bool check_fail(Bird B, int &score){
     for (int i=0; i<O.size(); ++i){
-        if (O.front().istouch()){
+        if (O.front().istouch(B, screen_N)){
             return true;
         }
-        if (O.front().pass == false and O.ispassed()){
-            O.front().pass = true;
+        if (O.front().getpass()== false and O.front().ispassed(B)){
+            O.front().setpass(true);
             score+=1;
         }
         O.push_back(O.front());
@@ -243,4 +245,12 @@ void init_screen(){
             screen[j][i] = ' ';
         }
     }
+}
+
+int init(){
+    return;
+}
+
+int main(){
+    startgame();
 }
