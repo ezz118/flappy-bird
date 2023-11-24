@@ -4,7 +4,7 @@
 // a class for the parameters of an obstacle
 
 //fix the velocity of the obstacle
-const double o_velocity = 1;
+const double o_velocity = 2;
 class obstacle {
 public:
     // get the position of the obstacle in the x direction
@@ -12,6 +12,8 @@ public:
     //get the position of the hole
     double gethole();
     //to know whether the obstacle has been passed
+    double gethole_lower();
+    double gethole_upper();
     bool getpass();
     // get the discriminant of whether the bird touches the obstacle
     bool istouch(Bird B, int screen_N);
@@ -32,7 +34,7 @@ private:
     // position of the obstacle in the x direction
     double x;
     // position of the hole in the y direction
-    double hole;
+    double hole, upper, lower;
     // record whether the bird has passed the obstacle
     bool pass;
 };

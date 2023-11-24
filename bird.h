@@ -3,9 +3,9 @@
 
 // a class for the parameters of a bird
 
-const double x_position = 1;
-const double acceleration = 9.8;
-const double jump_velocity = 1;
+const double x_position = 40;
+const double acceleration = 0.5;
+const double jump_velocity = 2.8;
 
 class Bird {
 public:

@@ -10,14 +10,16 @@
 
 using namespace std;
 
-const int screen_N=40;//size of the screen
-const int screen_M=80;
-const int sleep_time=50000;
+const int screen_N=30;//size of the screen
+const int screen_M=90;
+//const char obstacle_char=char(219);
+const char obstacle_char='#';
+
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=100;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
-int Left=screen_M*4/10; //set the left boundary of the obstacle
-int Right=screen_M*7/10; //set the right boundary of the obstacle
+int Left=screen_M*3/10; //set the left boundary of the obstacle
+int Right=screen_M*6/10; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
 list <obstacle> O; //to define the a list of obstacle
@@ -30,7 +32,7 @@ int startgame(){//will be renamed startgame
         if (keyboard_hit()){
             break;
         }
-        usleep(sleep_time);
+        wait_to_next();
     }
     int t=0;
     int score=0;
@@ -38,27 +40,29 @@ int startgame(){//will be renamed startgame
         move_bird(*B);
         move_obstacles();
 
-        if (check_fail(*B,score)){
-            break;
-        }
-
         if (check_new_ob(t)){
             add_ob();
             t=0;
         }
-
+        
+        init_screen();
         add_bird_to_screen(*B);
         add_ob_to_screen();
         print_screen();
-        init_screen();
+        printf("\n Your score: %d\n", score);
+
+        if (check_fail(*B,score)){
+            break;
+        }
 
         if (keyboard_hit()){
             B->jump();
         }
-        
-        usleep(sleep_time);
+
+        wait_to_next();
         t+=1;
     }
+    system("pause");//for debuging
     bird_fall(*B);
     delete B;
     return score;
@@ -77,6 +81,7 @@ void move_obstacles(){
 }
 
 void print_screen(void){
+    clear_screen();
     for (int i=0; i < screen_N; i++){
         for (int j=0; j < screen_M; j++){
             putchar(screen[i][j]);
@@ -103,7 +108,7 @@ void add_bird_to_screen(Bird B){
     int y=ceil(B.gety());
     if ((y-1)>=0 and (y-1)<screen_N){
         if ((x+1)>=0 and (x+1)<screen_M){
-            screen[y+1][x+1]=up_wing;
+            screen[y-1][x+1]=up_wing;
         }
         if (x>=0 and x<screen_M){
             screen[y-1][x]=up_wing;
@@ -138,11 +143,12 @@ void add_bird_to_screen(Bird B){
 void add_ob_to_screen(void){
     for (int i=0; i<O.size(); i++){
         int x=ceil(O.front().getx());
-        int y=ceil(O.front().gethole());
+        int y_lower=ceil(O.front().gethole_lower());
+        int y_upper=ceil(O.front().gethole_upper());
         for (int i=x-5; i<=x+6; i++){
             for (int j=0; j<screen_N; j++){
-                if ((i>=0 and i<screen_M) and (j<y or j>=y+9)){
-                    screen[j][i]=char(219);
+                if ((i>=0 and i<screen_M) and (j<=y_lower or j>=y_upper)){
+                    screen[j][i]=obstacle_char;
                 }
             }
         }
@@ -223,11 +229,11 @@ void bird_fall(Bird B){
         else{
             B.sety(double(screen_N));
         }
-        add_bird_to_screen(B);
         add_ob_to_screen();
+        add_bird_to_screen(B);
         print_screen();
         init_screen();
-        usleep(sleep_time);
+        wait_to_next();
 
     }
 }
@@ -242,11 +248,7 @@ void init_screen(){
 
 Bird* init_game(){
     O.clear();
-    for (int i=0;i<screen_N;i++){
-        for (int j=0;j<screen_M;j++){
-            screen[i][j]=' ';
-        }
-    }
+    init_screen();
 
     Bird* B = new Bird;
     B->sety(screen_N/2);

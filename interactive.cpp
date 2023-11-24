@@ -3,6 +3,8 @@
 
 #ifdef __linux__ 
 
+const int sleep_time=50000;
+
 #include <unistd.h>
 #include <termios.h>
 #include <fcntl.h>
@@ -37,6 +39,8 @@ void clear_screen(){
 
 #elif _WIN32
 
+const int sleep_time=80;
+
 #include<conio.h> 
 #include<cstring>
 #include<windows.h>
@@ -56,6 +60,10 @@ bool keyboard_hit(){
         }
     }
     return 0;
+}
+
+void wait_to_next(){
+    Sleep(sleep_time);
 }
 
 #endif
