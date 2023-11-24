@@ -13,6 +13,8 @@ public:
     double getx();
     // get the position of the bird in the y direction
     double gety();
+    // get the velocity of the bird
+    double getv();
     // update the velocity of the bird after every jump
     void jump();
     // update the position and the velocity of the bird after every time step
