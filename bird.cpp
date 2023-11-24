@@ -32,3 +32,6 @@ void Bird::sety(double h) {
     y = h;
 }
 
+void Bird::setv(double velo) {
+    v = velo;
+}

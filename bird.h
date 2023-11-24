@@ -21,6 +21,8 @@ public:
     void next();
     // set the value of y
     void sety(double h);
+    // set the value of v
+    void setv(double velo);
     
 private:
     // position of the bird in the x direction

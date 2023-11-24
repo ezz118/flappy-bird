@@ -2,7 +2,8 @@
 #define STARTGAME_H
 #include "bird.h"
 
-Bird init(void);//for initializing the game, e.g. new a bird
+Bird* init_game(void);//for initializing the game, e.g. new a bird
+
 void print_screen(void);//to print the screen
 
 void move_bird(Bird &B);//to move a bird

@@ -24,7 +24,7 @@ list <obstacle> O; //to define the a list of obstacle
 
 
 int startgame(){//will be renamed startgame
-    Bird B = init();
+    Bird* B = init_game();
     print_screen();
     while (1){
         if (keyboard_hit()){
@@ -35,10 +35,10 @@ int startgame(){//will be renamed startgame
     int t=0;
     int score=0;
     while (1){
-        move_bird(B);
+        move_bird(*B);
         move_obstacles();
 
-        if (check_fail(B,score)){
+        if (check_fail(*B,score)){
             break;
         }
 
@@ -47,19 +47,20 @@ int startgame(){//will be renamed startgame
             t=0;
         }
 
-        add_bird_to_screen(B);
+        add_bird_to_screen(*B);
         add_ob_to_screen();
         print_screen();
         init_screen();
 
         if (keyboard_hit()){
-            B.jump();
+            B->jump();
         }
         
         usleep(sleep_time);
         t+=1;
     }
-    bird_fall(B);
+    bird_fall(*B);
+    delete B;
     return score;
 }
 
@@ -239,10 +240,25 @@ void init_screen(){
     }
 }
 
-int init(){
-    return;
+Bird* init_game(){
+    O.clear();
+    for (int i=0;i<screen_N;i++){
+        for (int j=0;j<screen_M;j++){
+            screen[i][j]=' ';
+        }
+    }
+
+    Bird* B = new Bird;
+    B->sety(screen_N/2);
+    B->setv(0);
+    add_ob();
+    add_bird_to_screen(*B);
+    add_ob_to_screen();
+
+    return B;
 }
 
-int main(){
+int main(){//to be deleted
     startgame();
+    return 0;
 }
