@@ -6,6 +6,7 @@
 #include "startgame.h"
 using namespace std;
 int main(){
+        srand(time(0));
         print_menu();
         int option=0;
         string name;
