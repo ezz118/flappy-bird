@@ -17,7 +17,7 @@ void upd_ranking( int score, string name){
         fout.close();
 }
 
-void showranking(){
+void showranking(){   //待改
         ifstream fin;
         fin.open("ranking.txt"); // File input/output
         if (fin.fail()){
@@ -74,6 +74,7 @@ void showranking(){
 }
 
 void print_menu(){
+        //待改
         clear_screen();
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
         cout<<"Enter 1 to record your latest score!"<<endl;
