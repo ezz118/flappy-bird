@@ -3,9 +3,15 @@
 
 // a class for the parameters of a bird
 
+#ifdef __linux__ 
+const double x_position = 40;
+const double acceleration = 0.4;
+const double jump_velocity = 2;
+#elif _WIN32
 const double x_position = 40;
 const double acceleration = 0.6;
 const double jump_velocity = 3;
+#endif
 
 class Bird {
 public:
