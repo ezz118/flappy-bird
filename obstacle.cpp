@@ -90,6 +90,9 @@ bool obstacle::istouch(Bird B, int screen_N) {
             }
         }
     }
+    if (B.gety()<0 and ceil(B.getx())+3 >= x-5){
+        return true;
+    }
     return false;
 
 }

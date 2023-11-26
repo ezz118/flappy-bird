@@ -12,9 +12,10 @@ using namespace std;
 
 const int screen_N=35;//size of the screen
 const int screen_M=100;
-//const char obstacle_char=char(219);
-const char obstacle_char='#';
-
+char ob_left[]="\u2590";
+char ob_right[]="\u258C";
+char ob[]="\u2588";
+char ground[]="\u2582";
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=3;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
@@ -87,9 +88,23 @@ void print_screen(void){
     clear_screen();
     for (int i=0; i < screen_N; i++){
         for (int j=0; j < screen_M; j++){
-            putchar(screen[i][j]);
+            if (screen[i][j]=='l'){
+                printf("\033[1;32m%s\033[0m", ob_left);
+            }
+            else if (screen[i][j]=='r'){
+                printf("\033[1:32m%s\033[0m", ob_right);
+            }
+            else if (screen[i][j]=='m'){
+                printf("\033[1;32m%s\033[0m", ob);
+            }
+            else if (screen[i][j]=='g'){
+                printf("%s", ground);
+            }
+            else{
+                printf("\033[1;33m%s\033[0m", screen[i][j]);
+            }
         }
-        putchar('\n');
+        printf("\n");
     }
 }
 
@@ -152,7 +167,15 @@ void add_ob_to_screen(void){
         for (int i=x-5; i<=x+6; i++){
             for (int j=0; j<screen_N; j++){
                 if ((i>=0 and i<screen_M) and (j<=y_lower or j>=y_upper)){
-                    screen[j][i]=obstacle_char;
+                    if (i == x-5){
+                        screen[j][i]='l';
+                    }
+                    if (i == x+6){
+                        screen[j][i]='r';
+                    }
+                    else{
+                        screen[j][i]='m';
+                    }
                 }
             }
         }
@@ -232,9 +255,10 @@ void bird_fall(Bird B){
 
 void init_screen(){
     for (int i=0; i<screen_M; ++i){
-        for (int j=0; j<screen_N; ++j){
+        for (int j=0; j<screen_N-1; ++j){
             screen[j][i] = ' ';
         }
+        screen[screen_N][i]='g';
     }
 }
 
