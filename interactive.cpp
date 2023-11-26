@@ -11,7 +11,7 @@ const int sleep_time=100000;
 
 typedef struct termios T;
 
-bool keyboard_hit(char target=' '){
+bool keyboard_hit(char target){
     T oldt, newt;
     int c, oldf;
 
@@ -57,7 +57,7 @@ void clear_screen(){
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),CursorPosition); 
 }
 
-bool keyboard_hit(char target=' '){
+bool keyboard_hit(char target){
     if (kbhit()){
         char key=getch();
         if (key==target){

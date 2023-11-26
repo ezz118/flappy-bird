@@ -2,15 +2,17 @@
 #include <cstdio>
 #include <string>
 #include <fstream>
+#include <ctime>
 #include "menu.h"
 #include "startgame.h"
 using namespace std;
+
 int main(){
         srand(time(0));
-        print_menu();
         int option=0;
         string name;
         while (option != 4){
+                print_menu();
                 cin>>option;
                 switch (option){
                         case 1:

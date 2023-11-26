@@ -252,7 +252,3 @@ Bird* init_game(){
     return B;
 }
 
-int main(){//to be deleted
-    startgame();
-    return 0;
-}

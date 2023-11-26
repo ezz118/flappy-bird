@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "menu.h"
+#include "interactive.h"
 
 using namespace std;
 
@@ -71,7 +72,9 @@ void showranking(){
                 }
         delete [] scorelist;
         }
+
 void print_menu(){
+        clear_screen();
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
         cout<<"Enter 1 to record your latest score!"<<endl;
         cout<<"Enter 2 to show the leaderborad!"<<endl;
