@@ -162,10 +162,12 @@ void add_ob_to_screen(void){
 }
 
 void add_ob(void){
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> dis2(4.0, double(screen_N-15));
-    double ran_hole=dis2(gen);
+    //std::random_device rd;
+    //std::mt19937 gen(rd());
+    //std::uniform_real_distribution<double> dis2(4.0, double(screen_N-15));
+   // double ran_hole=dis2(gen);
+    int ran_hole = rand()%(screen_N-15-4)+4;
+
     obstacle new_o;
     new_o.setx(screen_M);
     new_o.sethole(ran_hole);
@@ -173,25 +175,12 @@ void add_ob(void){
     O.push_back(new_o);
 }
 
-double Normal_Distribution(int a, int b, double mean, double std){
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::normal_distribution<double> dist(mean, std);
-    double rand_value;
-    while (1){
-        rand_value=dist(gen);
-        if (rand_value>=double(a) && rand_value<=double(b)){
-            return rand_value;
-        }
-    }
-
-}
 
 bool check_new_ob(int t){
-    double mean = (Left+Right)/2;
-    double std = 5.0;
     if (t==0) {
-        add_ob_time = Normal_Distribution(Left, Right, mean, std);
+        int L=int(Left);
+        int R=int(Right);
+        add_ob_time = rand()%(R-L+1)+L;
         return false;
     }
 
