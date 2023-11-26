@@ -12,30 +12,30 @@ void upd_ranking( int score, string name){
         if (fout.fail()){
                 cout<<"Error in file opening!!"<<endl;
                 exit(1);
-                }
+        }
         fout<<name<<"&"<<score<<endl;
         fout.close();
-        }
+}
 
 void showranking(){
         ifstream fin;
-        fin.open("ranking.txt");
+        fin.open("ranking.txt"); // File input/output
         if (fin.fail()){
                 cout<<"Error in file opening or there is no ranking!"<<endl;
                 exit(1);
-                }
+        }
         int count=0;
         string score;
         while (fin >> score){
                 count++;
-                }
+        }
         fin.close();
         //make a struct
         struct rank{
                 string name;
                 int scorenum;
         };
-        rank * scorelist = new rank[count];
+        rank * scorelist = new rank[count]; //Dynamic memory management
         count=0;
         fin.open("ranking.txt");
         while (fin >> score){
@@ -49,7 +49,7 @@ void showranking(){
                 name = score.substr(0,pos);
                 scorelist[count].name=name;
                 count++;
-                }
+        }
         fin.close();
         //rearranging the list
         int i, j, idx;
@@ -61,7 +61,7 @@ void showranking(){
                         if (scorelist[j].scorenum >max){
                                 max= scorelist[j].scorenum;
                                 idx = j;
-                                }
+                        }
                 }
                 if (idx != i)
                         swap( scorelist[i], scorelist[idx]);
@@ -69,9 +69,9 @@ void showranking(){
         cout<<"Leaderboard:"<<endl;
         for (int index=0; index<count && index<10; index++){
                 cout<<index+1<<"、"<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
-                }
-        delete [] scorelist;
         }
+        delete [] scorelist;
+}
 
 void print_menu(){
         clear_screen();
@@ -80,4 +80,4 @@ void print_menu(){
         cout<<"Enter 2 to show the leaderborad!"<<endl;
         cout<<"Enter 3 to reset the leaderborad!"<<endl;
         cout<<"Enter 4 to START THE GAME!!!!"<<endl;
-        }
+}
