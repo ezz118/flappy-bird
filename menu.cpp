@@ -3,6 +3,7 @@
 #include <string>
 #include "menu.h"
 #include "interactive.h"
+#include "startgame.h"
 
 using namespace std;
 
@@ -75,6 +76,13 @@ void showranking(){   //待改
 
 void print_menu(){
         //待改
+        clear_screen();
+        for (int i=0;i<=screen_N+4;i++){
+                for (int j=0;j<=screen_M;j++){
+                        putchar(' ');
+                }
+                putchar('\n');
+        }
         clear_screen();
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
         cout<<"Enter 1 to record your latest score!"<<endl;

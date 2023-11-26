@@ -2,6 +2,9 @@
 #define STARTGAME_H
 #include "bird.h"
 
+const int screen_N=35;//size of the screen
+const int screen_M=100;
+
 Bird* init_game(void);//for initializing the game, e.g. new a bird
 
 void print_screen(void);//to print the screen
@@ -29,5 +32,7 @@ void bird_fall(Bird B);//to show the bird falling when it hits the obstacle
 void init_screen(void);//to initialize all the entries in screen to be ' '
 
 bool check_new_ob(int t);//judge whether to add a new obstacle
+
+void game_pause(void);//to pause the game
 
 #endif

@@ -10,16 +10,14 @@
 
 using namespace std;
 
-const int screen_N=35;//size of the screen
-const int screen_M=100;
 //const char obstacle_char=char(219);
 const char obstacle_char='#';
 
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=3;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
-double Left=(double)screen_M*3.0/10.0; //set the left boundary of the obstacle
-double Right=(double)screen_M*6.0/10.0; //set the right boundary of the obstacle
+double Left=(double)screen_M*4.0/10.0; //set the left boundary of the obstacle
+double Right=(double)screen_M*6.5/10.0; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
 list <obstacle> O; //to define the a list of obstacle
@@ -29,10 +27,10 @@ int startgame(){//will be renamed startgame
     Bird* B = init_game();
     int score=0;
     print_screen();
-    printf("\n Your score: %d\n", score);
+    printf("\n Your score: %d\nPress space to start the game.\n", score);
     
     while (1){
-        if (keyboard_hit()){
+        if (keyboard_hit()==' '){
             break;
         }
         wait_to_next();
@@ -52,22 +50,26 @@ int startgame(){//will be renamed startgame
         add_ob_to_screen();
         add_bird_to_screen(*B);
         print_screen();
-        printf("\n Your score: %d\n", score);
+        printf("\n Your score: %d\nPress q to pause the game.\n", score);
 
         if (check_fail(*B,score)){
             break;
         }
 
-        if (keyboard_hit()){
+        char tmpc=keyboard_hit();
+        if (tmpc==' '){
             B->jump();
+        }
+        else if (tmpc=='q' || tmpc=='Q'){
+            game_pause();
         }
 
         wait_to_next();
         t+=1;
     }
     bird_fall(*B);
-    system("pause");//for debuging
     delete B;
+    printf("You fail! Your score is %d\n",score);
     return score;
 }
 
@@ -214,9 +216,13 @@ bool check_fail(Bird B, int &score){
 }
 
 void bird_fall(Bird B){
+    for (int i=1;i<=10;i++){
+        wait_to_next();
+    }
     B.setv(-jump_velocity);
     while ((ceil(B.gety()) + 2) <  screen_N){
-        B.sety(B.gety() - B.getv());
+        //B.sety(B.gety() - B.getv());
+        B.next();
         init_screen();
         add_ob_to_screen();
         add_bird_to_screen(B);
@@ -228,6 +234,14 @@ void bird_fall(Bird B){
     add_ob_to_screen();
     add_bird_to_screen(B);
     print_screen();
+    for (int i=0;i<=4;i++){
+        for (int j=0;j<=screen_M;j++){
+            putchar(' ');
+        }
+        putchar('\n');
+    }
+    print_screen();
+    return;
 }
 
 void init_screen(){
@@ -252,3 +266,13 @@ Bird* init_game(){
     return B;
 }
 
+void game_pause(){
+    printf("\n Game paused. Press SPACE to resume the game.\n");
+    while (1){
+        if (keyboard_hit()==' '){
+            break;
+        }
+        wait_to_next();
+    }
+    return;
+}
