@@ -57,10 +57,10 @@ void clear_screen(){
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),CursorPosition); 
 }
 
-bool keyboard_hit(){
+bool keyboard_hit(char target=' '){
     if (kbhit()){
         char key=getch();
-        if (key==' '){
+        if (key==target){
             return 1;
         }
     }
