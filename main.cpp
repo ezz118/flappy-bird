@@ -23,13 +23,10 @@ int main(){
                                 upd_ranking(score, name);
                                 cout<<"The latest score has been recorded!"<<endl;
                                 break;
-                        case 2: showranking(); break;
-                        case 3:
-                                remove("ranking.txt");
-                                cout<<"The leaderboard has been reseted!"<<endl;
-                                break;
-                        case 4: break;
-                        default: cout<<"Invalid input."<<endl;
+                        case 2: 
+                                showranking(); break;
+                        default: 
+                                cout<<"Invalid input."<<endl;
                 }
         }
         return 0;
