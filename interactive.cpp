@@ -3,7 +3,7 @@
 
 #ifdef __linux__ 
 
-const int sleep_time=50000;
+const int sleep_time=100000;
 
 #include <unistd.h>
 #include <termios.h>
@@ -11,7 +11,7 @@ const int sleep_time=50000;
 
 typedef struct termios T;
 
-int keyboard_hit(char target){
+bool keyboard_hit(char target=' '){
     T oldt, newt;
     int c, oldf;
 
@@ -36,6 +36,10 @@ int keyboard_hit(char target){
 void clear_screen(){
     printf("\x1B[2J\x1B[H");
     return;
+}
+
+void wait_to_next(){
+    usleep(sleep_time);
 }
 
 #elif _WIN32
