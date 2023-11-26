@@ -69,13 +69,12 @@ void showranking(){   //待改
         }
         cout<<"Leaderboard:"<<endl;
         for (int index=0; index<count && index<10; index++){
-                cout<<index+1<<"、"<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
+                cout<<index+1<<"  "<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
         }
         delete [] scorelist;
 }
 
 void print_menu(){
-        //待改
         clear_screen();
         for (int i=0;i<=screen_N+4;i++){
                 for (int j=0;j<=screen_M;j++){
@@ -85,8 +84,6 @@ void print_menu(){
         }
         clear_screen();
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
-        cout<<"Enter 1 to record your latest score!"<<endl;
-        cout<<"Enter 2 to show the leaderborad!"<<endl;
-        cout<<"Enter 3 to reset the leaderborad!"<<endl;
-        cout<<"Enter 4 to START THE GAME!!!!"<<endl;
+        court<<"  Enter 1 to start the game!"<<endl;
+        cout<<"Enter 2 to show the leaderboard!"<<endl;
 }
