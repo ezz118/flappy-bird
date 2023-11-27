@@ -1,14 +1,11 @@
-Flappy Bird
-
-1. Team members
+-Flappy Bird
+   -
+Team members
    
-Deng Shen 3036077748
-
-// Please add your name and number here
-
-//
-
-//
+ - Deng Shen 3036077748
+ - //please enter your name and number here
+ - //
+ - //
 
 Description of our project
 
