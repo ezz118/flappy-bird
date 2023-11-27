@@ -24,3 +24,13 @@ make main
 ```bash
 ./main
 ```
+ - Remember to fullscreen your console!
+ - Then press SPACE to enter the menu
+ - Press
+   - 1 to start the game
+     - During the game, you can press q to pause the game.
+     - After hitting the green block, the game will end and you will be invited to enter your username. Your records will be saved in "ranking.txt" file.
+   - 2 to show the leaderborad
+     - The Leaderborad will show the top 10 results and their usernames.
+   - 3 to quit the game
+   
