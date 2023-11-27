@@ -2,7 +2,7 @@
 #define INTERACTIVE_H
 
 void clear_screen(void);
-bool keyboard_hit(char target=' ');
+char keyboard_hit(void);
 void wait_to_next(void);
 
 #endif
