@@ -15,7 +15,7 @@ int main(){
         cout<<"\nIMPORTANT: please fullscreen your console\n\n";
         wait_to_enter();
         srand(time(0));
-        char option;
+        char option = '0';
         string name;
         while (option != 4){
                 print_menu();
