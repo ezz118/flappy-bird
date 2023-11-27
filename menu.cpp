@@ -87,16 +87,16 @@ void print_menu(){
         }
         clear_screen();
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
-        cout<<"  Enter 1 to start the game!"<<endl;
-        cout<<"Enter 2 to show the leaderboard!"<<endl;
-        cout<<"        Enter 3 to quit"<<endl;
+        cout<<"  Press 1 to start the game!"<<endl;
+        cout<<"Press 2 to show the leaderboard!"<<endl;
+        cout<<"        Press 3 to quit"<<endl;
 }
 
 void wait_to_enter(){
         for (int i=1;i<=20;i++){
                 wait_to_next();
         }
-        cout<<"Please enter SPACE to return to the main menu or q to quit the game\n";
+        cout<<"Press SPACE to return to the main menu or q to quit the game\n";
         char ch=keyboard_hit();
         while (ch!=' ' && ch!='q' && ch!='Q'){
                 wait_to_next();
@@ -111,7 +111,7 @@ void wait_to_enter(){
 }
 
 void game_end(){
-        cout<<"Game end!"<<endl;
+        cout<<"Game ended!"<<endl;
         for (int i=1;i<=20;i++){
                 wait_to_next();
         }

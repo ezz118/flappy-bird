@@ -23,7 +23,7 @@ int main(){
                         case '1':
                                 int score;
                                 score=startgame();
-                                cout<<"\nEnter your username:";
+                                cout<<"\nPlease enter your username:";
                                 cin>>name;
                                 upd_ranking(score, name);
                                 break;
