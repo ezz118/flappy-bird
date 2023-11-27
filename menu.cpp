@@ -112,6 +112,7 @@ void wait_to_enter(){
 }
 
 void game_end(){
+        cout<<endl;
         cout<<"Game ended!"<<endl;
         for (int i=1;i<=20;i++){
                 wait_to_next();
