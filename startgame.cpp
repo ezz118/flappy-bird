@@ -175,7 +175,7 @@ void add_ob_to_screen(void){
                     if (i == x-5){
                         screen[j][i]='l';
                     }
-                    if (i == x+6){
+                    else if (i == x+6){
                         screen[j][i]='r';
                     }
                     else{
