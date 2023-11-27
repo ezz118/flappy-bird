@@ -3,7 +3,7 @@ Flappy Bird
 Team members
 -   
  - Deng Shen 3036077748
- - //please enter your name and number here
+ - Lai Ruize 3035973270
  - //
  - //
 
@@ -55,5 +55,17 @@ Features implemented in each file and coding requirements
   - Dynamic memory management: It uses dynamic memory management to sort the scores.
 - menu.h
   - Header file of menu.cpp
-- //Please add explanation
+- bird.cpp
+  - Keep track of the position and the velocity of the bird.
+  - Set the "rebounce" velocity and the change of speed of the bird after every hit of the keyboard.
+- bird.h
+  - Header file of bird.cpp
+- obstacle.cpp
+  - Set the position, moving speed of the obstacle and the position of the "hole" of every obstacle.
+  - Provide a discriminant to check whether the bird hits the obstacle.
+  - Check the bird has passed the current obstacle or not.
+- obstacle.h
+  - Header file of obstacle.cpp
+- //please add other files
+  - //
     
