@@ -5,8 +5,8 @@
 
 #ifdef __linux__ 
 const double x_position = 40;
-const double acceleration = 0.4;
-const double jump_velocity = 2;
+const double acceleration = 0.3;
+const double jump_velocity = 1;
 #elif _WIN32
 const double x_position = 40;
 const double acceleration = 0.6;
