@@ -12,6 +12,7 @@ int main(){
         cout<<"PLAY FLAPPY BIRD!!!"<<endl;
         cout<<"Welcome to flappy bird, this game is made by"<<endl;
         cout<<"How to play: (to be edited)"<<endl;
+        cout<<"\nIMPORTANT: please fullscreen your console\n\n";
         wait_to_enter();
         srand(time(0));
         char option;
