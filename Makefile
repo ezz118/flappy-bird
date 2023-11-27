@@ -20,11 +20,11 @@ menu.o: menu.cpp menu.h interactive.h
 main.o: main.cpp menu.h startgame.h interactive.h
 	$(CC) $(FLAGS) -c $<
 
-main: $(objects)
-	$(CC) $(FLAGS) $(objects) -o $<
+game: $(objects)
+	$(CC) $(FLAGS) $(objects) -o $@
 
 clean:
-	rm -f $(objects) main main.tgz
+	rm -f $(objects) game main.tgz
 
 tar:
 	tar -cvzf main.tgz *.cpp *.h 
