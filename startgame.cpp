@@ -103,7 +103,9 @@ void print_screen(void){
                 printf("%s", ground);
             }
             else{
-                printf("\033[1;33m%c033[0m", screen[i][j]);
+                char tmp[2];
+                tmp[0]=screen[i][j], tmp[1]='\0';
+                printf("\033[1;33m%s033[0m", tmp);
             }
         }
         printf("\n");
