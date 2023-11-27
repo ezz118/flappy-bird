@@ -272,7 +272,7 @@ void init_screen(){
         for (int j=0; j<screen_N-1; ++j){
             screen[j][i] = ' ';
         }
-        screen[screen_N][i]='g';
+        screen[screen_N-1][i]='g';
     }
 }
 
