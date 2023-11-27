@@ -16,9 +16,11 @@ void upd_ranking( int score, string name){
         }
         fout<<name<<"&"<<score<<endl;
         fout.close();
+        cout<<"The latest score has been recorded!"<<endl;
+        wait_to_enter();
 }
 
-void showranking(){   //待改
+void showranking(){
         ifstream fin;
         fin.open("ranking.txt"); // File input/output
         if (fin.fail()){
@@ -72,6 +74,7 @@ void showranking(){   //待改
                 cout<<index+1<<"  "<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
         }
         delete [] scorelist;
+        wait_to_enter();
 }
 
 void print_menu(){
@@ -84,6 +87,33 @@ void print_menu(){
         }
         clear_screen();
         cout<<"       PLAY FLAPPY BIRD!!!  "<<endl;
-        court<<"  Enter 1 to start the game!"<<endl;
+        cout<<"  Enter 1 to start the game!"<<endl;
         cout<<"Enter 2 to show the leaderboard!"<<endl;
+        cout<<"        Enter 3 to quit"<<endl;
+}
+
+void wait_to_enter(){
+        for (int i=1;i<=20;i++){
+                wait_to_next();
+        }
+        cout<<"Please enter SPACE to return to the main menu or q to quit the game\n";
+        char ch=keyboard_hit();
+        while (ch!=' ' && ch!='q' && ch!='Q'){
+                wait_to_next();
+                ch=keyboard_hit();
+        }
+        if (ch==' '){
+                return;
+        }
+        else{
+                game_end();
+        }
+}
+
+void game_end(){
+        cout<<"Game end!"<<endl;
+        for (int i=1;i<=20;i++){
+                wait_to_next();
+        }
+        exit(0);
 }
