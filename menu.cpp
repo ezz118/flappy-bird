@@ -96,7 +96,7 @@ void wait_to_enter(){
         for (int i=1;i<=20;i++){
                 wait_to_next();
         }
-        cout<<"Press SPACE to return to the main menu or q to quit the game\n";
+        cout<<"Press SPACE to go to the main menu or q to quit the game\n";
         char ch=keyboard_hit();
         while (ch!=' ' && ch!='q' && ch!='Q'){
                 wait_to_next();

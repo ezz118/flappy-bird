@@ -94,7 +94,7 @@ void print_screen(void){
                 printf("\033[1;32m%s\033[0m", ob_left);
             }
             else if (screen[i][j]=='r'){
-                printf("\033[1:32m%s\033[0m", ob_right);
+                printf("\033[1;32m%s\033[0m", ob_right);
             }
             else if (screen[i][j]=='m'){
                 printf("\033[1;32m%s\033[0m", ob);
@@ -108,8 +108,7 @@ void print_screen(void){
             else{
                 char tmp[2];
                 tmp[0]=screen[i][j], tmp[1]='\0';
-                printf("\033[1;33m%s\033[0m",tmp);
-                printf("%s", tmp);
+                printf("\033[1;33m%c\033[0m",tmp);
             }
         }
         putchar('\n');
