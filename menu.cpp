@@ -69,6 +69,7 @@ void showranking(){
                 if (idx != i)
                         swap( scorelist[i], scorelist[idx]);
         }
+        cout<<endl;
         cout<<"Leaderboard:"<<endl;
         for (int index=0; index<count && index<10; index++){
                 cout<<index+1<<"  "<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
