@@ -14,6 +14,12 @@ char ob_left[]="\u2590";
 char ob_right[]="\u258C";
 char ob[]="\u2588";
 char ground[]="\u2582";
+char left_up[]="\u2598";
+char right_up[]="\u259D";
+char left_down[]="\u2596";
+char right_down[]="\u2597";
+char up[]="\u2580";
+char down[]="\u2584";
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=3;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
@@ -102,6 +108,24 @@ void print_screen(void){
             else if (screen[i][j]=='g'){
                 printf("%s", ground);
             }
+            else if (screen[i][j]=='a'){
+                printf("\033[1;32m%s\033[0m",left_up);
+            }
+            else if (screen[i][j]=='b'){
+                printf("\033[1;32m%s\033[0m",right_up);
+            }
+            else if (screen[i][j]=='c'){
+                printf("\033[1;32m%s\033[0m",left_down);
+            }
+            else if (screen[i][j]=='d'){
+                printf("\033[1;32m%s\033[0m",right_down);
+            }
+            else if (screen[i][j]=='u'){
+                printf("\033[1;32m%s\033[0m",up);
+            }
+            else if (screen[i][j]=='v'){
+                printf("\033[1;32m%s\033[0m",down);
+            }
             else if (screen[i][j]==' '){
                 putchar(' ');
             }
@@ -173,10 +197,32 @@ void add_ob_to_screen(void){
             for (int j=0; j<screen_N; j++){
                 if ((i>=0 and i<screen_M) and (j<=y_lower or j>=y_upper)){
                     if (i == x-5){
-                        screen[j][i]='l';
+                        if (j != y_lower && j != y_upper){
+                            screen[j][i]='l';
+                        }
+                        else if (j == y_lower){
+                            screen[j][i]='b';
+                        }
+                        else{
+                            screen[j][i]='d';
+                        }
                     }
                     else if (i == x+6){
-                        screen[j][i]='r';
+                        if (j != y_lower && j != y_upper){
+                            screen[j][i]='r';
+                        }
+                        else if (j == y_lower){
+                            screen[j][i]='a';
+                        }
+                        else{
+                            screen[j][i]='c';
+                        }
+                    }
+                    else if (j == y_lower){
+                        screen[j][i]='u';
+                    }
+                    else if (j == y_upper){
+                        screen[j][i]='v';
                     }
                     else{
                         screen[j][i]='m';
