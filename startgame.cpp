@@ -106,9 +106,7 @@ void print_screen(void){
                 putchar(' ');
             }
             else{
-                char tmp[2];
-                tmp[0]=screen[i][j], tmp[1]='\0';
-                printf("\033[1;33m%s\033[0m",tmp);
+                printf("\033[1;33m%c\033[0m",screen[i][j]);
             }
         }
         putchar('\n');
