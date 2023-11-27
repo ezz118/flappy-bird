@@ -5,9 +5,9 @@
 using namespace std;
 
 void upd_ranking(int score, string name);
-
-void showranking();
-
-void print_menu();
+void showranking(void);
+void print_menu(void);
+void wait_to_enter(void);
+void game_end(void);
 
 #endif
