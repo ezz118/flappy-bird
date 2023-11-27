@@ -1,9 +1,13 @@
 Flappy Bird
 
 1. Team members
+   
 Deng Shen 3036077748
+
 // Please add your name and number here
+
 //
+
 //
 
 Description of our project
