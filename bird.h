@@ -7,10 +7,12 @@
 const double x_position = 40;
 const double acceleration = 0.13;
 const double jump_velocity = 1.2;
+const double v_cap=-1.8;
 #elif _WIN32
 const double x_position = 40;
 const double acceleration = 0.6;
 const double jump_velocity = 3;
+const double v_cap=-4;
 #endif
 
 class Bird {

@@ -19,7 +19,9 @@ void Bird::jump() {
 
 // positive velocity means upward, positive acceleration means downward
 void Bird::next() {
-    v = v - a;
+    if (v>v_cap){
+        v = v - a;
+    }
     y = y - v;
 }
 

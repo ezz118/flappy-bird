@@ -5,7 +5,7 @@
 
 //fix the velocity of the obstacle
 #ifdef __linux__ 
-const double o_velocity = 0.5;
+const double o_velocity = 0.6;
 #elif _WIN32
 const double o_velocity = 1;
 #endif
