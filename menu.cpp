@@ -60,7 +60,7 @@ void upd_ranking( int newscore, string name){
                 exit(1);
         }
         for (int i=0;i<10;i++){
-                fout<<name<<"&"<<score<<endl;
+                fout<<scorelist[count].name<<"&"<<scorelist[count].scorenum<<endl;
         }
         fout.close();
         if (flag){
