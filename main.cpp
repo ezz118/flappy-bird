@@ -9,6 +9,7 @@
 using namespace std;
 
 int main(){
+        clear_screen();
         cout<<"PLAY FLAPPY BIRD!!!"<<endl;
         cout<<"Welcome to flappy bird, this game is made by"<<endl;
         cout<<"How to play: (to be edited)"<<endl;
