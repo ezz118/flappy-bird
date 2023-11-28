@@ -47,18 +47,16 @@ void obstacle::set_position(double s, double hole_y, double hole_height_y) {
     hole = hole_y;
 }
 
-bool obstacle::istouch(Bird B, int screen_N) {
+bool obstacle::istouch(Bird B, int screen_N){
     for (int i=0; i<=1; i++){
         for (int j=-5; j<=6; j++){
             for (int k=0; k<=lower; k++){
                 if (((ceil(B.getx())+i) == (x+j)) and ((ceil(B.gety())-1) == k)){
-                    //printf("1): %d %d %d up\n",i,j,k);
                     return true;
                 }
             }
             for (int k=upper; k<screen_N; k++){
                 if (((ceil(B.getx())+i) == (x+j)) and ((ceil(B.gety())+1) == k)){
-                    //printf("1): %d %d %d down\n",i,j,k);
                     return true;
                 }
             }
@@ -69,13 +67,11 @@ bool obstacle::istouch(Bird B, int screen_N) {
             for (int j=-5; j<=6; j++){
                 for (int k=0; k<=lower+1; k++){
                     if (((ceil(B.getx())+i) == x+j) and (ceil(B.gety()) == k)){
-                        //printf("2): %d %d %d up\n",i,j,k);
                         return true;
                     }
                 }
                 for (int k=upper; k<screen_N; k++){
                     if (((ceil(B.getx())+i) == x+j) and (ceil(B.gety()) == k)){
-                        //printf("2): %d %d %d down\n",i,j,k);
                         return true;
                     }
                 }
@@ -85,7 +81,6 @@ bool obstacle::istouch(Bird B, int screen_N) {
     if (B.gety()<0 and ceil(B.getx())+3 == x-5){
         return true;
     }
-    printf("checked, false");
     return false;
 }
 
