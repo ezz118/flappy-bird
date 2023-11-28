@@ -6,7 +6,7 @@ using namespace std;
 
 // a function to update the ranking list;
 // input the score and the name of the player
-void upd_ranking(int score, string name);
+void upd_ranking(int score);
 
 // a function to display the ranking list
 void showranking(void);

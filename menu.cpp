@@ -14,13 +14,12 @@ struct Rank{
         int scorenum;
 };
 
-void upd_ranking( int newscore, string newname){
+void upd_ranking( int newscore){
         ifstream fin;
         fin.open("ranking.txt");
         Rank scorelist[11];
         string score;
         int count=0;
-        bool flag=0;
         while (fin >> score){
                 int pos=0;
                 pos = score.find("&");
@@ -30,6 +29,10 @@ void upd_ranking( int newscore, string newname){
                 string name;
                 name = score.substr(0,pos);
                 if (newscore>scoreNum){
+                        string newname;
+                        cout<<"\nCongratulation, you enter the leaderboard!\n";
+                        cout<<"Please enter Please enter your username (No space please):";
+                        cin>>newname;
                         scorelist[count].scorenum=newscore;
                         scorelist[count].name=newname;
                         count+=1;
@@ -37,7 +40,6 @@ void upd_ranking( int newscore, string newname){
                                 break;
                         }
                         newscore=-1;
-                        flag=1;
                 }
                 scorelist[count].scorenum=scoreNum;
                 scorelist[count].name=name;
@@ -47,11 +49,14 @@ void upd_ranking( int newscore, string newname){
                 }
         }
         if (count<10 && newscore!=-1){
+                string newname;
+                cout<<"\nCongratulation, you enter the leaderboard!\n";
+                cout<<"Please enter Please enter your username (No space please):";
+                cin>>newname;
                 scorelist[count].scorenum=newscore;
                 scorelist[count].name=newname;
                 count+=1;
                 newscore=-1;
-                flag=1;
         }
         ofstream fout;
         fout.open("ranking.txt");
@@ -63,12 +68,10 @@ void upd_ranking( int newscore, string newname){
                 fout<<scorelist[i].name<<"&"<<scorelist[i].scorenum<<endl;
         }
         fout.close();
-        if (flag){
-                cout<<"Congratulation, you enter the leaderboard!\n";
+        if (newscore==-1){
                 showranking();
                 return;
         }
-        cout<<"The latest score has been recorded!"<<endl;
         wait_to_enter();
 }
 

@@ -43,9 +43,7 @@ int main(){
                                         wait_to_enter();
                                         break;
                                 }
-                                cout<<"\nPlease enter your username (do NOT include space):";
-                                cin>>name;
-                                upd_ranking(score, name);
+                                upd_ranking(score);
                                 break;
                         case '2': 
                                 showranking(); 
