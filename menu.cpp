@@ -14,7 +14,7 @@ struct Rank{
         int scorenum;
 };
 
-void upd_ranking( int newscore, string name){
+void upd_ranking( int newscore, string newname){
         ifstream fin;
         fin.open("ranking.txt");
         Rank scorelist[11];
@@ -31,7 +31,7 @@ void upd_ranking( int newscore, string name){
                 name = score.substr(0,pos);
                 if (newscore>scoreNum){
                         scorelist[count].scorenum=newscore;
-                        scorelist[count].name=name;
+                        scorelist[count].name=newname;
                         count+=1;
                         if (count==10){
                                 break;
@@ -48,7 +48,7 @@ void upd_ranking( int newscore, string name){
         }
         if (count==0){
                 scorelist[count].scorenum=newscore;
-                scorelist[count].name=name;
+                scorelist[count].name=newname;
                 count+=1;
                 newscore=-1;
                 flag=1;
@@ -85,6 +85,9 @@ void showranking(){
                 count++;
         }
         fin.close();
+        if (count==0){
+                printf("The list is empty.\n\n");
+        }
         struct Rank * scorelist = new Rank[count]; //Dynamic memory management
         count=0;
         fin.open("ranking.txt");
