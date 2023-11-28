@@ -44,6 +44,6 @@ void init_screen(void);
 //judge whether to add a new obstacle
 bool check_new_ob(int t);
 
-void game_pause(void);//to pause the game
+bool game_pause(void);//to pause the game
 
 #endif
