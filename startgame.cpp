@@ -271,7 +271,7 @@ bool check_new_ob(int t){
 
 bool check_fail(Bird B, int &score){
     for (int i=0; i<O.size(); ++i){
-        printf("checking: %.2lf%.2lf%.2lf",B.getx(),B.gety(),O.front().getx());
+        printf("checking: %.2lf %.2lf %.2lf",B.getx(),B.gety(),O.front().getx());
         if (O.front().istouch(B, screen_N)){
             return true;
         }
