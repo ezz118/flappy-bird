@@ -51,7 +51,7 @@ Features implemented in each file and coding requirements
   - // please explain
 - menu.cpp
   - Make a menu page and print instructions to players.
-  - File input/output: It saves players' scores in "ranking.txt", and outputs the top 10 scores and their usernames if players want to do so.
+  - File input/output: It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large. It outputs the top 10 scores and their usernames if players want to do so.
   - Dynamic memory management: It uses dynamic memory management to sort the scores.
   - Data structures for storing game status: It uses a struct Rank which contains a string and an int variables to store players' scores.
 - menu.h
