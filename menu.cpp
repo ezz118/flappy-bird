@@ -7,15 +7,67 @@
 
 using namespace std;
 
-void upd_ranking( int score, string name){
+
+//make a struct
+struct Rank{
+        string name;
+        int scorenum;
+};
+
+void upd_ranking( int newscore, string name){
+        ifstream fin;
+        fin.open("ranking.txt");
+        Rank scorelist[11];
+        string score;
+        int count=0;
+        bool flag=0;
+        while (fin >> score){
+                int pos=0;
+                pos = score.find("&");
+                string scorenum;
+                scorenum = score.substr(pos+1);
+                int scoreNum = stoi(scorenum);
+                string name;
+                name = score.substr(0,pos);
+                if (newscore>scoreNum){
+                        scorelist[count].scorenum=newscore;
+                        scorelist[count].name=name;
+                        count+=1;
+                        if (count==10){
+                                break;
+                        }
+                        newscore=-1;
+                        flag=1;
+                }
+                scorelist[count].scorenum=scoreNum;
+                scorelist[count].name=name;
+                count++;
+                if (count==10){
+                        break;
+                }
+        }
+        if (count==0){
+                scorelist[count].scorenum=newscore;
+                scorelist[count].name=name;
+                count+=1;
+                newscore=-1;
+                flag=1;
+        }
         ofstream fout;
         fout.open("ranking.txt", ios::app);
         if (fout.fail()){
                 cout<<"Error in file opening!!"<<endl;
                 exit(1);
         }
-        fout<<name<<"&"<<score<<endl;
+        for (int i=0;i<10;i++){
+                fout<<name<<"&"<<score<<endl;
+        }
         fout.close();
+        if (flag){
+                cout<<"Congratulation, you enter the leaderboard!\n";
+                showranking();
+                return;
+        }
         cout<<"The latest score has been recorded!"<<endl;
         wait_to_enter();
 }
@@ -33,12 +85,7 @@ void showranking(){
                 count++;
         }
         fin.close();
-        //make a struct
-        struct rank{
-                string name;
-                int scorenum;
-        };
-        rank * scorelist = new rank[count]; //Dynamic memory management
+        struct Rank * scorelist = new Rank[count]; //Dynamic memory management
         count=0;
         fin.open("ranking.txt");
         while (fin >> score){
