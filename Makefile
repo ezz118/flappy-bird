@@ -29,4 +29,8 @@ clean:
 tar:
 	tar -cvzf main.tgz *.cpp *.h 
 
-.POHNY: clean tar
+clear_rank:
+	rm -rf ranking.txt
+	touch ranking.txt
+
+.POHNY: clean tar clear_rank
