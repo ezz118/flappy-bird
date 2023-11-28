@@ -340,10 +340,14 @@ Bird* init_game(){
 }
 
 void game_pause(){
-    printf("\n Game paused. Press SPACE to resume the game.\n");
+    printf("\n Game paused. Press SPACE to resume the game or Q to quit.\n");
     while (1){
-        if (keyboard_hit()==' '){
+        char tmpch=keyboard_hit();
+        if (tmpch==' '){
             break;
+        }
+        else if (tmpch=='q' || tmpch=='Q'){
+            exit(0);
         }
         wait_to_next();
     }

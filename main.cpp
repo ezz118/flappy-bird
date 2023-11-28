@@ -36,6 +36,10 @@ int main(){
                         case '1':
                                 int score;
                                 score=startgame();
+                                if (score==0){
+                                        wait_to_enter();
+                                        break;
+                                }
                                 cout<<"\nPlease enter your username (do NOT include space):";
                                 cin>>name;
                                 upd_ranking(score, name);
