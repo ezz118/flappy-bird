@@ -10,6 +10,13 @@ using namespace std;
 
 int main(){
         clear_screen();
+        for (int i=0;i<=screen_N+4;i++){
+                for (int j=0;j<=screen_M;j++){
+                        putchar(' ');
+                }
+                putchar('\n');
+        }
+        clear_screen();
         cout<<"PLAY FLAPPY BIRD!!!"<<endl;
         cout<<"Welcome to flappy bird, this game is made by"<<endl;
         cout<<"How to play: (to be edited)"<<endl;

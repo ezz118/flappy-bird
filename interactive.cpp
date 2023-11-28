@@ -3,7 +3,7 @@
 
 #ifdef __linux__ 
 
-const int sleep_time=60000;
+const int sleep_time=50000;
 
 #include <unistd.h>
 #include <termios.h>

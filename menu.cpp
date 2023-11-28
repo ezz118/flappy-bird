@@ -117,7 +117,7 @@ void showranking(){
                         swap( scorelist[i], scorelist[idx]);
         }
         cout<<endl;
-        cout<<"Leaderboard:"<<endl;
+        cout<<"\n Leaderboard:"<<endl;
         for (int index=0; index<count && index<10; index++){
                 cout<<index+1<<"  "<<scorelist[index].name<<": "<<scorelist[index].scorenum<<endl;
         }
@@ -144,7 +144,7 @@ void wait_to_enter(){
         for (int i=1;i<=20;i++){
                 wait_to_next();
         }
-        cout<<"Press SPACE to go to the main menu or q to quit the game\n";
+        cout<<"Press SPACE to go to the main menu or Q to quit the game\n";
         char ch=keyboard_hit();
         while (ch!=' ' && ch!='q' && ch!='Q'){
                 wait_to_next();
@@ -160,7 +160,7 @@ void wait_to_enter(){
 
 void game_end(){
         cout<<endl;
-        cout<<"Game ended!"<<endl;
+        cout<<"\nGame ended!"<<endl;
         for (int i=1;i<=20;i++){
                 wait_to_next();
         }

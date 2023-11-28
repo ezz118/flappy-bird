@@ -48,7 +48,6 @@ void obstacle::set_position(double s, double hole_y, double hole_height_y) {
 }
 
 bool obstacle::istouch(Bird B, int screen_N) {
-    printf("checking\n");
     for (int i=0; i<=1; i++){
         for (int j=-5; j<=6; j++){
             for (int k=0; k<=lower; k++){
