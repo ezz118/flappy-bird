@@ -29,8 +29,8 @@ void obstacle::setx(double input_x){
 
 void obstacle::sethole(double y){
     hole = y;
-    upper = y+11;
-    lower = y-3;
+    upper = y+10;
+    lower = y-2;
 }
 
 void obstacle::setpass(bool p){

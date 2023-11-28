@@ -87,6 +87,7 @@ void showranking(){
         fin.close();
         if (count==0){
                 printf("\nThe list is empty.\n\n");
+                wait_to_enter();
                 return;
         }
         struct Rank * scorelist = new Rank[count]; //Dynamic memory management
