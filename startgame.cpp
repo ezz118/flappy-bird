@@ -23,8 +23,8 @@ char down[]="\u2584";
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=5;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
-double Left=(double)screen_M*6.0/10.0; //set the left boundary of the obstacle
-double Right=(double)screen_M*12/10.0; //set the right boundary of the obstacle
+double Left=(double)screen_M*4.5/10.0; //set the left boundary of the obstacle
+double Right=(double)screen_M*10/10.0; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
 list <obstacle> O; //to define the a list of obstacle
@@ -273,11 +273,14 @@ bool check_new_ob(int t){
 }
 
 bool check_fail(Bird B, int &score){
+    while (O.front().getx()<=-10.0){
+        O.pop_front();
+    }
     for (int i=0; i<O.size(); ++i){
         if (O.front().istouch(B, screen_N)){
             return true;
         }
-        if (O.front().getpass()== false and O.front().ispassed(B)){
+        if (O.front().getpass()==false and O.front().ispassed(B)){
             O.front().setpass(true);
             score+=1;
         }
