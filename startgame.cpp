@@ -23,8 +23,8 @@ char down[]="\u2584";
 int flap=0;//to record how long the bird has kept one gesture
 int flaptime=3;//the time that the bird keep one gesture
 int add_ob_time=screen_M/2; //set the initial time for adding an obstacle
-double Left=(double)screen_M*8.0/10.0; //set the left boundary of the obstacle
-double Right=(double)screen_M*13/10.0; //set the right boundary of the obstacle
+double Left=(double)screen_M*6.0/10.0; //set the left boundary of the obstacle
+double Right=(double)screen_M*12/10.0; //set the right boundary of the obstacle
 
 char screen[screen_N][screen_M];
 list <obstacle> O; //to define the a list of obstacle

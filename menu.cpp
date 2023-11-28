@@ -59,7 +59,7 @@ void upd_ranking( int newscore, string name){
                 cout<<"Error in file opening!!"<<endl;
                 exit(1);
         }
-        for (int i=0;i<count<10?count:10;i++){
+        for (int i=0;i<(count<10?count:10);i++){
                 fout<<scorelist[i].name<<"&"<<scorelist[i].scorenum<<endl;
         }
         fout.close();
