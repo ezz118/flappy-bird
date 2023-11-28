@@ -46,7 +46,7 @@ void upd_ranking( int newscore, string newname){
                         break;
                 }
         }
-        if (count<9 && newscore!=-1){
+        if (count<10 && newscore!=-1){
                 scorelist[count].scorenum=newscore;
                 scorelist[count].name=newname;
                 count+=1;
