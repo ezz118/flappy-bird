@@ -20,11 +20,11 @@ How to run Flappy Bird?
  -  Download and extract the ZIP containing the files. All files should be under the same directory.
  -  Run the command
  ```bash
-make main
+make game
 ```
  - Then run the command to start the game!
 ```bash
-./main
+./game
 ```
  - Remember to fullscreen your console!
  - Then press SPACE to enter the menu
