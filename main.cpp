@@ -18,7 +18,7 @@ int main(){
         }
         clear_screen();
         cout<<"PLAY FLAPPY BIRD!!!"<<endl;
-        cout<<"Welcome to flappy bird, this game is made by"<<endl;
+        cout<<"Welcome to flappy bird, this game is made by Jason Mak, (to be filled)"<<endl;
         cout<<"How to play: (to be edited)"<<endl;
         cout<<"\nIMPORTANT: please fullscreen your console";
         wait_to_enter();
