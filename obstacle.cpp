@@ -65,7 +65,7 @@ bool obstacle::istouch(Bird B, int screen_N){
     for (int i=-3; i<=3; i++){
         if ((i != 0) and (i != 1)){
             for (int j=-5; j<=6; j++){
-                for (int k=0; k<=lower+1; k++){
+                for (int k=0; k<=lower; k++){
                     if (((ceil(B.getx())+i) == x+j) and (ceil(B.gety()) == k)){
                         return true;
                     }
