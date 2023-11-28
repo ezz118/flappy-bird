@@ -68,7 +68,10 @@ int startgame(){//will be renamed startgame
             B->jump();
         }
         else if (tmpc=='q' || tmpc=='Q'){
-            game_pause();
+            if (!game_pause()){
+                delete B;
+                return -1;
+            }
         }
 
         wait_to_next();
@@ -339,17 +342,21 @@ Bird* init_game(){
     return B;
 }
 
-void game_pause(){
-    printf("\n Game paused. Press SPACE to resume the game or Q to quit.\n");
+bool game_pause(){
+    printf("\n Game paused. Press SPACE to resume, M to back to menu or Q to quit.\n");
     while (1){
         char tmpch=keyboard_hit();
         if (tmpch==' '){
             break;
         }
         else if (tmpch=='q' || tmpch=='Q'){
+            printf("\nGame ended!\n");
             exit(0);
+        }
+        else if (tmpch=='m' || tmpch=='M'){
+            return 0;
         }
         wait_to_next();
     }
-    return;
+    return 1;
 }

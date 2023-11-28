@@ -36,7 +36,10 @@ int main(){
                         case '1':
                                 int score;
                                 score=startgame();
-                                if (score==0){
+                                if (score==-1){
+                                        break;
+                                }
+                                else if (score==0){
                                         wait_to_enter();
                                         break;
                                 }

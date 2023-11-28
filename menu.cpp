@@ -149,7 +149,7 @@ void wait_to_enter(){
         for (int i=1;i<=15;i++){
                 wait_to_next();
         }
-        cout<<"\nPress SPACE to go to the main menu or Q to quit the game\n";
+        cout<<"\n\nPress SPACE to go to the main menu or Q to quit the game\n";
         char ch=keyboard_hit();
         while (ch!=' ' && ch!='q' && ch!='Q'){
                 wait_to_next();
@@ -166,8 +166,5 @@ void wait_to_enter(){
 void game_end(){
         cout<<endl;
         cout<<"\nGame ended!"<<endl;
-        for (int i=1;i<=15;i++){
-                wait_to_next();
-        }
         exit(0);
 }
