@@ -54,7 +54,7 @@ void upd_ranking( int newscore, string name){
                 flag=1;
         }
         ofstream fout;
-        fout.open("ranking.txt", ios::app);
+        fout.open("ranking.txt");
         if (fout.fail()){
                 cout<<"Error in file opening!!"<<endl;
                 exit(1);
