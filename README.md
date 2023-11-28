@@ -4,7 +4,7 @@ Team members
 -   
  - Deng Shen 3036077748
  - Lai Ruize 3035973270
- - //
+ - Ke Wenjun 3035974365
  - //
 
 Description of our project
@@ -66,6 +66,10 @@ Features implemented in each file and coding requirements
   - Check the bird has passed the current obstacle or not.
 - obstacle.h
   - Header file of obstacle.cpp
-- //please add other files
-  - //
+- startgame.cpp
+  - Execute the game.
+  - Generation of random game sets: It generates the height of the obstacles' holes randomly. Besides, we use probability distribution to generate new obstacles.
+  - Data structures for storing game status: The status of the bird is stored in a variable of class Bird. The status of the obstacles is stored in a list of obstacle class.
+- startgame.h
+  - Header file of startgame.cpp 
     
