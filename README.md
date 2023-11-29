@@ -10,7 +10,7 @@ Team members
 Description of our project
 -
  - Welcome to Flappy Bird! We recreated this classic game using C++ so that it can be played through the Linux terminal and SSH.
- - It is a simple but interesting game, the only thing you need to do is just press SPACE!
+ - It is a simple but interesting game, the only thing you need to do is press SPACE!
  - Try to pass as many obstacles as you can, and create a record that none of your friends can beat😎
  - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (or increase your stress🫣)
 
