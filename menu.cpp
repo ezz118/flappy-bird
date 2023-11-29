@@ -77,7 +77,7 @@ void upd_ranking( int newscore){
 
 void showranking(){
         ifstream fin;
-        fin.open("ranking.txt"); // File input/output
+        fin.open("ranking.txt"); // File output
         if (fin.fail()){
                 cout<<"Error in file opening or there is no ranking!"<<endl;
                 exit(1);
@@ -85,7 +85,7 @@ void showranking(){
         int count=0;
         string score;
         while (fin >> score){
-                count++;
+                count++; //get the number of lines
         }
         fin.close();
         if (count==0){
@@ -96,7 +96,7 @@ void showranking(){
         struct Rank * scorelist = new Rank[count]; //Dynamic memory management
         count=0;
         fin.open("ranking.txt");
-        while (fin >> score){
+        while (fin >> score){     //Add information into the list
                 int pos=0;
                 pos = score.find("&");
                 string scorenum;
