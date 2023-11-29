@@ -60,6 +60,7 @@ Features implemented in each file and coding requirements
     - We name functions and variables properly.
   - In-code documentation
     - We add comments to explain the codes.
+    - Note: Most comments are in header files!
 
 - main.cpp
   - Include 3 branches: starting the game, showing the leaderboard and quitting the game.
