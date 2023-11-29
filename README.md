@@ -18,7 +18,7 @@ Game rules
 -
  - Just press SPACE to make the descending bird fly upwards and fly between columns of green obstacles without hitting them!
  - After passing one column, you can get one score!
- - Be careful! If you hit the green obstacles, the game will end!
+ - Be careful! If you hit the green obstacles or the ground, the game will end!
 
 How to run Flappy Bird?
 -
