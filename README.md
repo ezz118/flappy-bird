@@ -95,7 +95,8 @@ Features implemented in each file and coding requirements
   - It can clean all unnecessary files.
   - It can reset the "ranking.txt", we add this function here instead of in the game because we think players should not have permission to reset the leaderboard.
 - interactive.cpp
-  -//
+  - It includes a function to clear the screen.
+  - It includes a function to check whether the user hits any key on the keyboard and returns the key.
 - interactive.h
   - Header file of interactive.cpp 
     
