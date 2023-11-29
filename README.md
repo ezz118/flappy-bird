@@ -5,7 +5,7 @@ Team members
  - Deng Shen 3036077748
  - Lai Ruize 3035973270
  - Ke Wenjun 3035974365
- - //
+ - Mai Junshen 3035974444 Github: @ezz118
 
 Description of our project
 -
@@ -31,9 +31,10 @@ make game
  - Press
    - 1 to start the game
      - During the game, you can press q to pause the game.
-     - After hitting the green block, the game will end and you will be invited to enter your username. Your records will be saved in the "ranking.txt" file.
+     - When you pause, you can resume by pressing SPACE, quit the game by pressing q or return to the main menu by pressing m.
+     - After hitting the green block, the game ends and you will be invited to enter your name if your score is high enough to enter the leaderboard. Your records will be saved in the "ranking.txt" file.
    - 2 to show the leaderboard
-     - The Leaderboard will show the top 10 results and their usernames.
+     - The Leaderboard will show the top 10 results and their names.
    - 3 to quit the game
    
 Features implemented in each file and coding requirements
