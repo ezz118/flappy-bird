@@ -3,7 +3,7 @@ Flappy Bird
 Team members
 -   
  - Deng Shen 3036077748
- - Lai Ruize 3035973270
+ - Lai Ruize 3035973270 Github: @ruizelai
  - Ke Wenjun 3035974365
  - Mai Junshen 3035974444 Github: @ezz118
 
