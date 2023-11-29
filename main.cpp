@@ -32,18 +32,18 @@ int main(){
                         wait_to_next();
                         option=keyboard_hit();
                 }
-                switch (option){
+                switch (option){   //different options in menu
                         case '1':
                                 int score;
-                                score=startgame();
+                                score=startgame();  //start the game and the startgame() function returns a score
                                 if (score==-1){
                                         break;
                                 }
-                                else if (score==0){
+                                else if (score==0){  //Not entering leaderboard
                                         wait_to_enter();
                                         break;
                                 }
-                                upd_ranking(score);
+                                upd_ranking(score);  //update ranking
                                 break;
                         case '2': 
                                 showranking(); 
@@ -51,7 +51,7 @@ int main(){
                         case '3':
                                 game_end();
                                 break;
-                        default: 
+                        default:    //If the input is invalid, players need to input again.
                                 break;
                 }
         }
