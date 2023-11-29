@@ -4,7 +4,7 @@
 // a function to clear the screen
 void clear_screen(void);
 
-// a function to print the new screen after a hit on the keyboard
+// a function to check whether the user hits any key in the keyboard and returns the key
 char keyboard_hit(void);
 
 //create a suspension period
