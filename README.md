@@ -12,8 +12,9 @@ Description of our project
 -
  - Welcome to Flappy Bird! We recreated this classic game using C++ and it can run in the Linux environment.
  - It is an interesting and simple game, the only thing you need to do is press SPACE to move your bird!
+ - It is common to only get a few scores in each game at the beginning, but you can perform better after some practice!
  - Try to pass as many obstacles as you can, and create your best record that none of your friends can beat you😎
- - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (But failures in the game may increase your stress🫣)
+ - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (Be careful: failures in the game may increase your stress instead🫣)
  - The original version of the game is https://flappybird.io/, but we made a scoreboard in addition to it.
  - **Game rules**
    - Just press SPACE to make the failing bird fly upwards and fly between columns of green obstacles without hitting them!
