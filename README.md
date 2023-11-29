@@ -14,11 +14,10 @@ Description of our project
  - Try to pass as many obstacles as you can, and create your best record that none of your friends can beat you😎
  - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (or increase your stress🫣)
  - The original version of the game is https://flappybird.io/, but we made a scoreboard in addition to it.
-Game rules
--
+- Game rules
  - Just press SPACE to make the failing bird fly upwards and fly between columns of green obstacles without hitting them!
  - After passing one column, you can get one score!
- - Be careful! If you hit the green obstacles, the game will end!
+ - Be careful! If your bird hits the green obstacles or falls to the ground, the game will end!
 
 How to run Flappy Bird?
 -
