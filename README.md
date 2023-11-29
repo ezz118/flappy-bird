@@ -9,16 +9,16 @@ Team members
 
 Description of our project
 -
- - Welcome to Flappy Bird! We recreated this classic game using C++ so that it can be played through the Linux terminal and SSH.
- - It is a simple but interesting game, the only thing you need to do is press SPACE!
- - Try to pass as many obstacles as you can, and create a record that none of your friends can beat😎
+ - Welcome to Flappy Bird! We recreated this classic game using C++ and it can run in Linux environment.
+ - It is an interesting and simple game, the only thing you need to do is to press SPACE to move your bird!
+ - Try to pass as many obstacles as you can, and create your best record that none of your friends can beat you😎
  - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (or increase your stress🫣)
-
+ - The original version of the game is https://flappybird.io/, but we made a scoreboard in addition to it.
 Game rules
 -
- - Just press SPACE to make the descending bird fly upwards and fly between columns of green obstacles without hitting them!
+ - Just press SPACE to make the failing bird fly upwards and fly between columns of green obstacles without hitting them!
  - After passing one column, you can get one score!
- - Be careful! If you hit the green obstacles or the ground, the game will end!
+ - Be careful! If you hit the green obstacles, the game will end!
 
 How to run Flappy Bird?
 -
@@ -46,25 +46,25 @@ Features implemented in each file and coding requirements
 -
 - Code Requirement
   - Generation of random game sets or events
-    - The heights of the obstacles' holes are generated randomly (see [startgame.cpp](startgame.cpp)).
+    - The intervals between obstacles and the heights of the holes are generated randomly (see [startgame.cpp](startgame.cpp)).
   - Data structures for storing game status
     - We use a struct Rank which contains a string and int variables to store players' scores (see [menu.cpp](menu.cpp)).
-    - The status of the bird is stored in a variable of class Bird (see [startgame.cpp](startgame.cpp)).
+    - The status of the bird is stored in a variable of class Bird (see [bitr.cpp](bird.cpp)).
+    - We use an STL list to store the position of obstacles on the screen (see [startgame.cpp](startgame.cpp)).
   - Dynamic memory management
-    - We use dynamic memory management to sort the scores (see [menu.cpp](menu.cpp)).
+    - We use a dynamic memory variable of class bird to store its status for each game (see [startgame.cpp](startgame.cpp)).
   - File input/output (e.g., for loading/saving game status)
     -We use "ranking.txt" to save the score leaderboard (see [menu.cpp](menu.cpp)).
   - Program codes in multiple files
     - We write codes in multiple files, which is easy to manage (see [Makefile](Makefile)).
   - Proper indentation and naming styles
-    - We name functions and variables properly.
+    - We do proper indentation and name functions and variables properly.
   - In-code documentation
-    - We add comments to explain the codes.
-    - Note: Most comments are in header files!
+    - We add comments to explain the functions and important constants and variables.
 
 - main.cpp
+  - Print the introduction of the game. 
   - Include 3 branches: starting the game, showing the leaderboard and quitting the game.
-  - //further description
 - menu.cpp
   - Makes a menu page and prints instructions to players.
   - Asks players to input their usernames only when they enter the top 10 leaderboard.
@@ -80,12 +80,12 @@ Features implemented in each file and coding requirements
   - Header file of bird.cpp
 - obstacle.cpp
   - Set the position, moving speed of the obstacle and the position of the "hole" of every obstacle.
-  - Provide a discriminant to check whether the bird hits the obstacle.
+  - Check whether the bird hits the obstacle.
   - Check whether the bird has passed the current obstacle or not.
 - obstacle.h
   - Header file of obstacle.cpp
 - startgame.cpp
-  - Execute the game.
+  - Execute the game with the main loop.
   - Generation of random game sets: It generates the heights of the obstacles' holes randomly. Besides, we use probability distribution to generate new obstacles.
   - Data structures for storing game status: The status of the bird is stored in a variable of class Bird. The status of the obstacles is stored in a list of obstacle classes.
 - startgame.h
@@ -95,8 +95,7 @@ Features implemented in each file and coding requirements
   - It can clean all unnecessary files.
   - It can reset the "ranking.txt", we add this function here instead of in the game because we think players should not have permission to reset the leaderboard.
 - interactive.cpp
-  - It includes a function to clear the screen.
-  - It includes a function to check whether the user hits any key on the keyboard and returns the key.
+  - Support interaction between the user and the computer, including functions that are different in Linux and Windows like checking the hit keyboard, clear screen and sleep function.
+  - For the function of keyboard_hit, we refer to https://stackoverflow.com/questions/3276546/how-to-implement-getch-function-of-c-in-linux
 - interactive.h
   - Header file of interactive.cpp 
-    
