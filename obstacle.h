@@ -30,6 +30,7 @@ public:
     bool istouch(Bird B, int screen_N);
 
     // set the parameters for the obstacle
+    // input the x-position of the obstacle, y-position of the hole and its height.
     void set_position(double x, double hole, double hole_height);
 
     //set the x coordinate of the obstacle
@@ -42,9 +43,10 @@ public:
     void setpass(bool p);
 
     // update the position of the obstacle in the x direction
-    void next();
+    void next(void);
 
     // get the discriminant of whether the bird passed the obstacle
+    // input the Bird type parameters
     bool ispassed(Bird B);
 
 private:
