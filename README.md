@@ -4,7 +4,7 @@ Team members
 -   
  - Deng Shen 3036077748
  - Lai Ruize 3035973270 Github: @ruizelai
- - Ke Wenjun 3035974365
+ - Ke Wenjun 3035974365 Github: @poiuy1z
  - Mai Junshen 3035974444 Github: @ezz118
 
 Description of our project
