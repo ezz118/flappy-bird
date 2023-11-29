@@ -2,18 +2,23 @@ Flappy Bird
    -
 Team members
 -   
- - Deng Shen 3036077748
+ - Deng Shen 3036077748 Github: @SillyDacian
  - Lai Ruize 3035973270 Github: @ruizelai
  - Ke Wenjun 3035974365 Github: @poiuy1z
  - Mai Junshen 3035974444 Github: @ezz118
 
 Description of our project
 -
- - We recreated the game "Flappy Bird" using C++ so that it can be played through the Linux terminal and SSH.
+ - Welcome to Flappy Bird! We recreated this classic game using C++ so that it can be played through the Linux terminal and SSH.
+ - It is a simple but interesting game, the only thing you need to do is just press SPACE!
+ - Try to pass as many obstacles as you can, and create a record that none of your friends can beat😎
+ - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (or increase your stress🫣)
 
 Game rules
 -
  - Just press SPACE to make the descending bird fly upwards and fly between columns of green obstacles without hitting them!
+ - After passing one column, you can get one score!
+ - Be careful! If you hit the green obstacles, the game will end!
 
 How to run Flappy Bird?
 -
@@ -75,5 +80,9 @@ Features implemented in each file and coding requirements
   - Generation of random game sets: It generates the height of the obstacles' holes randomly. Besides, we use probability distribution to generate new obstacles.
   - Data structures for storing game status: The status of the bird is stored in a variable of class Bird. The status of the obstacles is stored in a list of obstacle classes.
 - startgame.h
-  - Header file of startgame.cpp 
+  - Header file of startgame.cpp
+- Makefile
+  - Program codes in multiple files: It compiles files into one game function.
+  - It can clean all unnecessary files.
+  - It can reset the "ranking.txt", we add this function here instead of in the game because we think players should not have permission to reset the leaderboard.
     
