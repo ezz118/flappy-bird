@@ -4,10 +4,10 @@
 // a class for the parameters of a bird
 
 #ifdef __linux__ 
-const double x_position = 40;
-const double acceleration = 0.19;
-const double jump_velocity = 1.8;
-const double v_cap=-2.4;
+const double x_position = 40;//the x-position of the bird appearing in the screen 
+const double acceleration = 0.19;//the acceleration of the falling bird
+const double jump_velocity = 1.8;//the velocity when the user hits the SPACE
+const double v_cap=-2.4;//the maximum speed of the falling bird
 #elif _WIN32
 const double x_position = 40;
 const double acceleration = 0.6;
