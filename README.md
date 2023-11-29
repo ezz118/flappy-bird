@@ -14,7 +14,7 @@ Description of our project
  - It is an interesting and simple game, the only thing you need to do is press SPACE to move your bird!
  - It is common to only get a few scores in each game at the beginning, but you can perform better after some practice!
  - Try to pass as many obstacles as you can, and create your best record that none of your friends can beat you😎
- - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your stress (Be careful: failures in the game may increase your stress instead🫣)
+ - When you feel bored, play this game to kill time; when you feel depressed, play this game to relieve your pressure (but don't play it for too long, otherwise it may intensify your stress instead if you fail many times🫣)
  - The original version of the game is https://flappybird.io/, but we made a scoreboard in addition to it.
  - **Game rules**
    - Just press SPACE to make the failing bird fly upwards and fly between columns of green obstacles without hitting them!
@@ -68,34 +68,30 @@ Features implemented in each file and coding requirements
   - Print the introduction of the game. 
   - Include 3 branches: starting the game, showing the leaderboard and quitting the game.
 - menu.cpp
-  - Makes a menu page and prints instructions to players.
-  - Asks players to input their usernames only when they enter the top 10 leaderboard.
-  - It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large. It outputs the top 10 scores and their usernames if players want to do so.
-  - It uses dynamic memory management to sort the scores.
+  - Print the main menu page and leaderboard.
+  - It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large. 
 - menu.h
   - Header file of menu.cpp
 - bird.cpp
-  - Keep track of the position and the velocity of the bird.
-  - Set the "rebounce" velocity and the change of speed of the bird after every hit of the keyboard.
+  - Include the class for the status of the bird, such as position, speed and acceleration.
 - bird.h
   - Header file of bird.cpp
 - obstacle.cpp
-  - Set the position, moving speed of the obstacle and the position of the "hole" of every obstacle.
-  - Check whether the bird hits the obstacle.
-  - Check whether the bird has passed the current obstacle or not.
+  - Include the class for the status of the obstacles, such as speed, position and the height of hole.
+  - Have a function to check whether the bird hits the obstacle and whether the bird has passed the current obstacle or not.
 - obstacle.h
   - Header file of obstacle.cpp
 - startgame.cpp
   - Execute the game with the main loop.
-  - It uses probability distribution to generate new obstacles.
+  - Include the core functions of the game, such as the movement, the output of the screen and the random generation of obstacles.
 - startgame.h
   - Header file of startgame.cpp
 - Makefile
   - Program codes in multiple files: It compiles files into one game function.
-  - It can clean all unnecessary files.
-  - It can reset the "ranking.txt", we add this function here instead of in the game because we think players should not have permission to reset the leaderboard.
+  - It can clean all unnecessary file by command make clean.
+  - It can clear the "ranking.txt" by command make clear_rank (This command is just for developers. We do not advice players to use it).
 - interactive.cpp
   - Support interaction between the user and the computer, including functions that are different in Linux and Windows like checking the hit keyboard, clear screen and sleep function.
   - For the function of keyboard_hit, we refer to https://stackoverflow.com/questions/3276546/how-to-implement-getch-function-of-c-in-linux
 - interactive.h
-  - Header file of interactive.cpp 
+  - Header file of interactive.cpp
