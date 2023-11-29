@@ -46,12 +46,20 @@ Features implemented in each file and coding requirements
 -
 - Code Requirement
   - Generation of random game sets or events
+    - The heights of the obstacles' holes are generated randomly (see [startgame.cpp](startgame.cpp)).
   - Data structures for storing game status
+    - We use a struct Rank which contains a string and int variables to store players' scores (see [menu.cpp](menu.cpp)).
+    - The status of the bird is stored in a variable of class Bird (see [startgame.cpp](startgame.cpp)).
   - Dynamic memory management
+    - We use dynamic memory management to sort the scores (see [menu.cpp](menu.cpp)).
   - File input/output (e.g., for loading/saving game status)
+    -We use "ranking.txt" to save the score leaderboard (see [menu.cpp](menu.cpp)).
   - Program codes in multiple files
+    - We write codes in multiple files, which is easy to manage (see [Makefile](Makefile)).
   - Proper indentation and naming styles
+    - We name functions and variables properly.
   - In-code documentation
+    - We add comments to explain the codes.
 
 - main.cpp
   - Include 3 branches: starting the game, showing the leaderboard and quitting the game.
@@ -61,7 +69,7 @@ Features implemented in each file and coding requirements
   - Asks players to input their usernames only when they enter the top 10 leaderboard.
   - File input/output: It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large. It outputs the top 10 scores and their usernames if players want to do so.
   - Dynamic memory management: It uses dynamic memory management to sort the scores.
-  - Data structures for storing game status: It uses a struct Rank which contains a string and an int variables to store players' scores.
+  - Data structures for storing game status: It uses a struct Rank which contains a string and int variables to store players' scores.
 - menu.h
   - Header file of menu.cpp
 - bird.cpp
@@ -77,7 +85,7 @@ Features implemented in each file and coding requirements
   - Header file of obstacle.cpp
 - startgame.cpp
   - Execute the game.
-  - Generation of random game sets: It generates the height of the obstacles' holes randomly. Besides, we use probability distribution to generate new obstacles.
+  - Generation of random game sets: It generates the heights of the obstacles' holes randomly. Besides, we use probability distribution to generate new obstacles.
   - Data structures for storing game status: The status of the bird is stored in a variable of class Bird. The status of the obstacles is stored in a list of obstacle classes.
 - startgame.h
   - Header file of startgame.cpp
@@ -85,4 +93,8 @@ Features implemented in each file and coding requirements
   - Program codes in multiple files: It compiles files into one game function.
   - It can clean all unnecessary files.
   - It can reset the "ranking.txt", we add this function here instead of in the game because we think players should not have permission to reset the leaderboard.
+- interactive.cpp
+  -//
+- interactive.h
+  - Header file of interactive.cpp 
     
