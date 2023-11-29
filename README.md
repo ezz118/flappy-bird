@@ -48,9 +48,11 @@ Features implemented in each file and coding requirements
   - In-code documentation
 
 - main.cpp
-  - // please explain
+  - Include 3 branches: starting the game, showing the leaderboard and quitting the game.
+  - //further description
 - menu.cpp
-  - Make a menu page and print instructions to players.
+  - Makes a menu page and prints instructions to players.
+  - Asks players to input their usernames only when they enter the top 10 leaderboard.
   - File input/output: It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large. It outputs the top 10 scores and their usernames if players want to do so.
   - Dynamic memory management: It uses dynamic memory management to sort the scores.
   - Data structures for storing game status: It uses a struct Rank which contains a string and an int variables to store players' scores.
