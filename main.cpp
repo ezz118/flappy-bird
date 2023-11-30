@@ -18,7 +18,7 @@ int main(){
         }
         clear_screen();
         cout<<"PLAY FLAPPY BIRD!!!"<<endl;
-        cout<<"Welcome to Flappy Bird, this game is made by Jason Mak, Dacian Deng, Maggie Ke (to be filled)"<<endl;
+        cout<<"Welcome to Flappy Bird, this game is made by Jason Mak, Dacian Deng, Maggie Ke and Ruize Lai."<<endl;
         cout<<"How to play: Just press SPACE to make the descending bird fly upwards and fly between columns of green obstacles without hitting them!"<<endl;
         cout<<"\nIMPORTANT: please fullscreen your console";
         wait_to_enter();
