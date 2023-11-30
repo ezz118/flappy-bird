@@ -88,7 +88,7 @@ Features implemented in each file and coding requirements
   - Header file of startgame.cpp
 - Makefile
   - Program codes in multiple files: It compiles files into one executable game file.
-  - It can clean all unnecessary files and the game file by command make clean.
+  - It can clean all unnecessary files and the game file by the command make clean.
   - It can clear the "ranking.txt" by command make clear_rank (This command is just for developers. We do not advice players to use it).
 - interactive.cpp
   - Support interaction between the user and the computer, including functions that are different in Linux and Windows like checking the hit keyboard, clear screen and sleep function.
