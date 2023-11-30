@@ -69,7 +69,8 @@ Features implemented in each file and coding requirements
   - Include 3 branches: starting the game, showing the leaderboard and quitting the game.
 - menu.cpp
   - Print the main menu page and leaderboard.
-  - It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large. 
+  - It updates the score leaderboard and only inputs the top 10 players' scores and usernames in "ranking.txt" to make sure the size of "ranking.txt" won't be too large.
+  - We let one player can have more than one record.
 - menu.h
   - Header file of menu.cpp
 - bird.cpp
