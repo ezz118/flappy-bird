@@ -66,6 +66,7 @@ Features implemented in each file and coding requirements
     - We do proper indentation and name functions and variables properly.
   - In-code documentation
     - We add comments to explain the functions and important constants and variables.
+  - We do NOT use any non-standard C/C++ libraries
 
 - main.cpp
   - Print the introduction of the game. 
